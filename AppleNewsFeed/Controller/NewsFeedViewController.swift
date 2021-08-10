@@ -38,12 +38,13 @@ class NewsFeedViewController: UIViewController {
     }
     
     @IBAction func getDataTapped(_ sender: Any) {
+        self.activityIndicator(animated: true)
         handleGetData()
         
     }
     
     func handleGetData(){
-        let jsonUrl = "https://newsapi.org/v2/everything?q=apple&from=2021-08-01&to=2021-08-08&sortBy=popularity&apiKey=32dacd77940549428c61f202bd523f5f"
+        let jsonUrl = "https://newsapi.org/v2/top-headlines?country=lv&category=sports&apiKey=32dacd77940549428c61f202bd523f5f"
         
         guard let url = URL(string: jsonUrl) else {return}
         
@@ -106,13 +107,13 @@ extension NewsFeedViewController: UITableViewDelegate, UITableViewDataSource{
             cell.newsImageView.image = image
         }
         let date = String(item.publishedAt.prefix(10))
-        self.title = "Apple News \(date)"
+        self.title = "Sports News \(date)"
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        return 200
     }
 }
 
