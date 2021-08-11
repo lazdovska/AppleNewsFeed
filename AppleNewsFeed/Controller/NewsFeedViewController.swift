@@ -9,7 +9,7 @@ import UIKit
 import Gloss
 
 class NewsFeedViewController: UIViewController {
-
+    
     var items: [Item] = []
     
     @IBOutlet weak var tableView: UITableView!
@@ -20,7 +20,7 @@ class NewsFeedViewController: UIViewController {
         self.title = "Apple News"
         activityIndicatorView.isHidden = true
     }
-
+    
     func activityIndicator(animated: Bool){
         DispatchQueue.main.async {
             if animated{
@@ -34,7 +34,7 @@ class NewsFeedViewController: UIViewController {
     }
     
     @IBAction func infoBarItem(_ sender: Any) {
-        basicAlert(title: "News Feed Info!", message: "Press plane to fetch Apple News Feed articles.")
+        basicAlert(title: "News Feed Info!", message: "Press plane to fetch News Feed articles.")
     }
     
     @IBAction func getDataTapped(_ sender: Any) {
@@ -54,7 +54,7 @@ class NewsFeedViewController: UIViewController {
         
         let session = URLSession(configuration: .default)
         let task = session.dataTask(with: urlRequest) { data, response, err in
-        
+            
             if let err = err {
                 self.basicAlert(title: "Error!", message: "\(err.localizedDescription)")
             }
@@ -75,9 +75,9 @@ class NewsFeedViewController: UIViewController {
     func populateData(_ dict:[String: Any]){
         guard let responseDict = dict["articles"] as? [Gloss.JSON] else{
             return
-    }
+        }
         
-    items = [Item].from(jsonArray: responseDict) ?? []
+        items = [Item].from(jsonArray: responseDict) ?? []
         
         DispatchQueue.main.async {
             self.tableView.reloadData()
@@ -113,7 +113,25 @@ extension NewsFeedViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 200
+        return 100
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        guard  let vc = storyboard.instantiateViewController(identifier: "DetailViewController") as? DetailViewController
+        else {
+            return
+        }
+        let item = items[indexPath.row]
+        vc.contentString = item.description
+        vc.titleString = item.title
+        vc.webURLString = item.url
+        vc.newsImage = item.image
+        
+        //  present(vc, animated: true, completion: nil)
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
 }
 
