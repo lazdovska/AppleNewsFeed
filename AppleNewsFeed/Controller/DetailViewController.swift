@@ -33,6 +33,7 @@ class DetailViewController: UIViewController {
         titleLabel.text = titleString
         contentTextView.text = contentString
         newsImageView.image = newsImage
+        //newsImageView.sizeThatFits(250)
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         context = appDelegate.persistentContainer.viewContext
