@@ -17,7 +17,7 @@ class NewsFeedViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Apple News"
+        self.title = "News"
         activityIndicatorView.isHidden = true
     }
     

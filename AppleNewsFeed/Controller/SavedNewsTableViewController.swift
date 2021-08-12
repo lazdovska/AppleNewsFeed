@@ -13,7 +13,9 @@ class SavedNewsTableViewController: UITableViewController {
     
     var savedItems = [Items]()
     var context: NSManagedObjectContext?
+    var fromSavedItems = [Item]()
     // var webURLStringForSource = Int()
+    var webURLString = String()
     
     @IBOutlet weak var editButtonTitle: UIBarButtonItem!
     
@@ -54,9 +56,9 @@ class SavedNewsTableViewController: UITableViewController {
     }
     
     @IBAction func infoButtonTapped(_ sender: Any) {
+        
     }
     
-    //infoButton
     
     
     @IBAction func editButtonTapped(_ sender: Any) {
@@ -97,22 +99,22 @@ class SavedNewsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
     }
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //storyboard
-    }
     
     
     // Override to support editing the table view.
+    #warning("Cancel Button doesn't cancel action, but also deletes item.")
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
             let item = savedItems[indexPath.row]
-            self.context?.delete(item)
-            //save.load
-        }    
-    }
-    
-    
+                self.context?.delete(item)
+                deleteAlert(title: "Delete Item", message: "Do You want to delete item?")
+            
+                    self.saveData()
+                }
+                self.tableView.reloadData()
+            }
+
     
     // Override to support rearranging the table view.
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
@@ -128,15 +130,20 @@ class SavedNewsTableViewController: UITableViewController {
         return true
     }
     
+    // MARK: - Navigation
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        guard  let destination = storyboard.instantiateViewController(identifier: "WebViewController") as? WebViewController
+        else {
+            return
+        }
+        #warning("Fatal error: Index out of range")
+        //let item = fromSavedItems[indexPath.row]
+        //destination.urlString = item.url
+        
+        navigationController?.pushViewController(destination, animated: true)
+    }
+    }
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
-}
+

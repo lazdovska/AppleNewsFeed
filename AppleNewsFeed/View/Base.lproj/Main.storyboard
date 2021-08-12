@@ -208,7 +208,7 @@
         <!--Web View Controller-->
         <scene sceneID="QgN-Wb-Z5X">
             <objects>
-                <viewController hidesBottomBarWhenPushed="YES" id="lfu-73-hUH" customClass="WebViewController" customModule="AppleNewsFeed" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WebViewController" hidesBottomBarWhenPushed="YES" id="lfu-73-hUH" customClass="WebViewController" customModule="AppleNewsFeed" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="poh-9e-ICS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -336,7 +336,7 @@
                     <navigationItem key="navigationItem" id="1q9-Yz-9aO">
                         <barButtonItem key="leftBarButtonItem" image="info.circle" catalog="system" id="ISh-DZ-unX">
                             <connections>
-                                <action selector="infoButtonTapped:" destination="xY0-m7-wCr" id="FNh-5m-P1A"/>
+                                <action selector="infoButtonTapped:" destination="xY0-m7-wCr" id="O80-pD-P9C"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="V8W-Z5-dBg">
