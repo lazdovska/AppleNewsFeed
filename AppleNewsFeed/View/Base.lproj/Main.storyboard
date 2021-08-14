@@ -339,7 +339,7 @@
                                 <action selector="infoButtonTapped:" destination="xY0-m7-wCr" id="O80-pD-P9C"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="V8W-Z5-dBg">
+                        <barButtonItem key="rightBarButtonItem" title="Edit" id="V8W-Z5-dBg">
                             <connections>
                                 <action selector="editButtonTapped:" destination="xY0-m7-wCr" id="kMG-su-Boc"/>
                             </connections>

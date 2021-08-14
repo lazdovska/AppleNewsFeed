@@ -28,18 +28,19 @@ class SavedNewsTableViewController: UITableViewController {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         context = appDelegate.persistentContainer.viewContext
         loadData()
-        
+        countItems()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         loadData()
+        countItems()
     }
     
     func saveData(){
         do {
             try context?.save()
-            basicAlert(title: "Saved!", message: "To see your saved article go to Saved tab bar.")
+            basicAlert(title: "Deleted!", message: "Oops you just erased from CoreData your article.")
         } catch {
             print(error.localizedDescription)
         }
@@ -53,13 +54,17 @@ class SavedNewsTableViewController: UITableViewController {
         }catch{
             fatalError("Error in retrieving Saved Items")
         }
+        tableView.reloadData()
+    }
+    
+    func countItems() {
+        let itemsInTable = String(self.tableView.numberOfRows(inSection: 0))
+        self.title = "Saved(\(itemsInTable))"
     }
     
     @IBAction func infoButtonTapped(_ sender: Any) {
-        
+        basicAlert(title: "Saved News Info!", message: "In this section you will find your saved articles. If you decide to delete some articles, you can do it by using \"Edit\" button and click on delete symbol, or alternative way is to pointer on related article and swipe from right side the left, then press \"delete\"!")
     }
-    
-    
     
     @IBAction func editButtonTapped(_ sender: Any) {
         tableView.isEditing = !tableView.isEditing
@@ -69,8 +74,6 @@ class SavedNewsTableViewController: UITableViewController {
             editButtonTitle.title = "Edit"
         }
     }
-    
-    
     
     // MARK: - Table view data source
     
@@ -100,37 +103,6 @@ class SavedNewsTableViewController: UITableViewController {
         return 100
     }
     
-    
-    // Override to support editing the table view.
-    #warning("Cancel Button doesn't cancel action, but also deletes item.")
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            let item = savedItems[indexPath.row]
-                self.context?.delete(item)
-                deleteAlert(title: "Delete Item", message: "Do You want to delete item?")
-            
-                    self.saveData()
-                }
-                self.tableView.reloadData()
-            }
-
-    
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-        let row = savedItems.remove(at: fromIndexPath.row)
-        savedItems.insert(row, at: to.row)
-    }
-    
-    
-    
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    
-    // MARK: - Navigation
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
@@ -138,12 +110,38 @@ class SavedNewsTableViewController: UITableViewController {
         else {
             return
         }
-        #warning("Fatal error: Index out of range")
-        //let item = fromSavedItems[indexPath.row]
-        //destination.urlString = item.url
+        self.title = "Saved"
+        
+        destination.urlString = self.savedItems[indexPath.row].url!
         
         navigationController?.pushViewController(destination, animated: true)
     }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            // Delete the row from the data source
+            let deleteAlert = UIAlertController(title: "Delete", message: "Are you sure you want to delete?", preferredStyle: .alert)
+            deleteAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            deleteAlert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: {_ in
+                let item = self.savedItems[indexPath.row]
+                self.context?.delete(item)
+                self.saveData()
+            }))
+            self.present(deleteAlert, animated: true)
+        }
     }
     
+    // Override to support rearranging the table view.
+    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
+        let row = savedItems.remove(at: fromIndexPath.row)
+        savedItems.insert(row, at: to.row)
+    }
+    
+    // Override to support conditional rearranging of the table view.
+    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        // Return false if you do not want the item to be re-orderable.
+        return true
+    }
+}
+
 
