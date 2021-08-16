@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4206563D26CA46DA00F57766 /* DesignableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4206563C26CA46DA00F57766 /* DesignableTextField.swift */; };
+		4206563F26CA46EB00F57766 /* BounceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4206563E26CA46EB00F57766 /* BounceButton.swift */; };
+		4206564126CA46FD00F57766 /* DesignButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4206564026CA46FD00F57766 /* DesignButton.swift */; };
 		4210E69726C1879F00FB5624 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4210E69626C1879F00FB5624 /* AppDelegate.swift */; };
 		4210E69926C1879F00FB5624 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4210E69826C1879F00FB5624 /* SceneDelegate.swift */; };
 		4210E69B26C1879F00FB5624 /* NewsFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4210E69A26C1879F00FB5624 /* NewsFeedViewController.swift */; };
@@ -19,11 +22,14 @@
 		4210E6B726C1906C00FB5624 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4210E6B626C1906C00FB5624 /* Item.swift */; };
 		4210E6BA26C1B02700FB5624 /* Gloss in Frameworks */ = {isa = PBXBuildFile; productRef = 4210E6B926C1B02700FB5624 /* Gloss */; };
 		42F9A0AA26C434E900BDC7D6 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F9A0A926C434E900BDC7D6 /* DetailViewController.swift */; };
-		42F9A0AC26C43A3400BDC7D6 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F9A0AB26C43A3400BDC7D6 /* WebViewController.swift */; };
+		42F9A0AC26C43A3400BDC7D6 /* FindCharacterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F9A0AB26C43A3400BDC7D6 /* FindCharacterController.swift */; };
 		42F9A0AE26C43EF800BDC7D6 /* SavedNewsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F9A0AD26C43EF800BDC7D6 /* SavedNewsTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4206563C26CA46DA00F57766 /* DesignableTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableTextField.swift; sourceTree = "<group>"; };
+		4206563E26CA46EB00F57766 /* BounceButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BounceButton.swift; sourceTree = "<group>"; };
+		4206564026CA46FD00F57766 /* DesignButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignButton.swift; sourceTree = "<group>"; };
 		4210E69326C1879F00FB5624 /* AppleNewsFeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppleNewsFeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4210E69626C1879F00FB5624 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4210E69826C1879F00FB5624 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,7 +43,7 @@
 		4210E6B426C18CBC00FB5624 /* NewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
 		4210E6B626C1906C00FB5624 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		42F9A0A926C434E900BDC7D6 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DetailViewController.swift; path = AppleNewsFeed/Controller/DetailViewController.swift; sourceTree = SOURCE_ROOT; };
-		42F9A0AB26C43A3400BDC7D6 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		42F9A0AB26C43A3400BDC7D6 /* FindCharacterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindCharacterController.swift; sourceTree = "<group>"; };
 		42F9A0AD26C43EF800BDC7D6 /* SavedNewsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedNewsTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -53,6 +59,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4206563B26CA46A600F57766 /* ExtraResource */ = {
+			isa = PBXGroup;
+			children = (
+				4206563C26CA46DA00F57766 /* DesignableTextField.swift */,
+				4206563E26CA46EB00F57766 /* BounceButton.swift */,
+				4206564026CA46FD00F57766 /* DesignButton.swift */,
+			);
+			path = ExtraResource;
+			sourceTree = "<group>";
+		};
 		4210E68A26C1879F00FB5624 = {
 			isa = PBXGroup;
 			children = (
@@ -72,9 +88,10 @@
 		4210E69526C1879F00FB5624 /* AppleNewsFeed */ = {
 			isa = PBXGroup;
 			children = (
+				4206563B26CA46A600F57766 /* ExtraResource */,
+				4210E6AD26C187AD00FB5624 /* AppDelegate */,
 				4210E6B126C187FE00FB5624 /* Extension */,
 				4210E6B026C187EA00FB5624 /* Model */,
-				4210E6AD26C187AD00FB5624 /* AppDelegate */,
 				4210E6AF26C187C900FB5624 /* View */,
 				4210E6AE26C187BE00FB5624 /* Controller */,
 				4210E6A226C187A100FB5624 /* Assets.xcassets */,
@@ -99,7 +116,7 @@
 				4210E69A26C1879F00FB5624 /* NewsFeedViewController.swift */,
 				4210E6B426C18CBC00FB5624 /* NewsTableViewCell.swift */,
 				42F9A0A926C434E900BDC7D6 /* DetailViewController.swift */,
-				42F9A0AB26C43A3400BDC7D6 /* WebViewController.swift */,
+				42F9A0AB26C43A3400BDC7D6 /* FindCharacterController.swift */,
 				42F9A0AD26C43EF800BDC7D6 /* SavedNewsTableViewController.swift */,
 			);
 			path = Controller;
@@ -207,9 +224,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				4210E69B26C1879F00FB5624 /* NewsFeedViewController.swift in Sources */,
-				42F9A0AC26C43A3400BDC7D6 /* WebViewController.swift in Sources */,
+				42F9A0AC26C43A3400BDC7D6 /* FindCharacterController.swift in Sources */,
+				4206564126CA46FD00F57766 /* DesignButton.swift in Sources */,
 				4210E6A126C1879F00FB5624 /* AppleNewsFeed.xcdatamodeld in Sources */,
 				4210E6B526C18CBC00FB5624 /* NewsTableViewCell.swift in Sources */,
+				4206563D26CA46DA00F57766 /* DesignableTextField.swift in Sources */,
+				4206563F26CA46EB00F57766 /* BounceButton.swift in Sources */,
 				4210E69726C1879F00FB5624 /* AppDelegate.swift in Sources */,
 				4210E6B726C1906C00FB5624 /* Item.swift in Sources */,
 				4210E6B326C1882000FB5624 /* Alert.swift in Sources */,

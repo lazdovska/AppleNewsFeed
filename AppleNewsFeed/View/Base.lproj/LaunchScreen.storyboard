@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -17,18 +17,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="appstore" translatesAutoresizingMaskIntoConstraints="NO" id="Lfe-CM-9qW">
-                                <rect key="frame" x="95.5" y="335" width="223" height="226"/>
+                                <rect key="frame" x="75" y="314" width="265" height="269"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="223" id="hFq-bc-Mku"/>
-                                    <constraint firstAttribute="height" constant="226" id="jp5-57-Sne"/>
+                                    <constraint firstAttribute="width" constant="265" id="hFq-bc-Mku"/>
+                                    <constraint firstAttribute="height" constant="269" id="jp5-57-Sne"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="secondaryLabelColor"/>
                         <constraints>
                             <constraint firstItem="Lfe-CM-9qW" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="3xt-uG-3im"/>
-                            <constraint firstItem="Lfe-CM-9qW" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="MIU-Np-d4i"/>
+                            <constraint firstItem="Lfe-CM-9qW" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="0.5" id="MIU-Np-d4i"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -38,9 +38,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="appstore" width="1024" height="1024"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        <image name="appstore" width="512" height="512"/>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
