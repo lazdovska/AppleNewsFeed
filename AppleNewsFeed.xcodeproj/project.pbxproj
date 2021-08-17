@@ -10,20 +10,21 @@
 		4206563D26CA46DA00F57766 /* DesignableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4206563C26CA46DA00F57766 /* DesignableTextField.swift */; };
 		4206563F26CA46EB00F57766 /* BounceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4206563E26CA46EB00F57766 /* BounceButton.swift */; };
 		4206564126CA46FD00F57766 /* DesignButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4206564026CA46FD00F57766 /* DesignButton.swift */; };
+		4206564426CBF58500F57766 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 4206564326CBF58500F57766 /* Alamofire */; };
+		4206564726CBF59E00F57766 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 4206564626CBF59E00F57766 /* SwiftyJSON */; };
 		4210E69726C1879F00FB5624 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4210E69626C1879F00FB5624 /* AppDelegate.swift */; };
 		4210E69926C1879F00FB5624 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4210E69826C1879F00FB5624 /* SceneDelegate.swift */; };
-		4210E69B26C1879F00FB5624 /* NewsFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4210E69A26C1879F00FB5624 /* NewsFeedViewController.swift */; };
+		4210E69B26C1879F00FB5624 /* CharacterListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4210E69A26C1879F00FB5624 /* CharacterListViewController.swift */; };
 		4210E69E26C1879F00FB5624 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4210E69C26C1879F00FB5624 /* Main.storyboard */; };
 		4210E6A126C1879F00FB5624 /* AppleNewsFeed.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4210E69F26C1879F00FB5624 /* AppleNewsFeed.xcdatamodeld */; };
 		4210E6A326C187A100FB5624 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4210E6A226C187A100FB5624 /* Assets.xcassets */; };
 		4210E6A626C187A100FB5624 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4210E6A426C187A100FB5624 /* LaunchScreen.storyboard */; };
 		4210E6B326C1882000FB5624 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4210E6B226C1882000FB5624 /* Alert.swift */; };
-		4210E6B526C18CBC00FB5624 /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4210E6B426C18CBC00FB5624 /* NewsTableViewCell.swift */; };
+		4210E6B526C18CBC00FB5624 /* CharacterListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4210E6B426C18CBC00FB5624 /* CharacterListTableViewCell.swift */; };
 		4210E6B726C1906C00FB5624 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4210E6B626C1906C00FB5624 /* Item.swift */; };
-		4210E6BA26C1B02700FB5624 /* Gloss in Frameworks */ = {isa = PBXBuildFile; productRef = 4210E6B926C1B02700FB5624 /* Gloss */; };
 		42F9A0AA26C434E900BDC7D6 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F9A0A926C434E900BDC7D6 /* DetailViewController.swift */; };
 		42F9A0AC26C43A3400BDC7D6 /* FindCharacterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F9A0AB26C43A3400BDC7D6 /* FindCharacterController.swift */; };
-		42F9A0AE26C43EF800BDC7D6 /* SavedNewsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F9A0AD26C43EF800BDC7D6 /* SavedNewsTableViewController.swift */; };
+		42F9A0AE26C43EF800BDC7D6 /* SavedCharacterListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F9A0AD26C43EF800BDC7D6 /* SavedCharacterListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,18 +34,18 @@
 		4210E69326C1879F00FB5624 /* AppleNewsFeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppleNewsFeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4210E69626C1879F00FB5624 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4210E69826C1879F00FB5624 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		4210E69A26C1879F00FB5624 /* NewsFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedViewController.swift; sourceTree = "<group>"; };
+		4210E69A26C1879F00FB5624 /* CharacterListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListViewController.swift; sourceTree = "<group>"; };
 		4210E69D26C1879F00FB5624 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4210E6A026C1879F00FB5624 /* AppleNewsFeed.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AppleNewsFeed.xcdatamodel; sourceTree = "<group>"; };
 		4210E6A226C187A100FB5624 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4210E6A526C187A100FB5624 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4210E6A726C187A100FB5624 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4210E6B226C1882000FB5624 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
-		4210E6B426C18CBC00FB5624 /* NewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
+		4210E6B426C18CBC00FB5624 /* CharacterListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListTableViewCell.swift; sourceTree = "<group>"; };
 		4210E6B626C1906C00FB5624 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		42F9A0A926C434E900BDC7D6 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DetailViewController.swift; path = AppleNewsFeed/Controller/DetailViewController.swift; sourceTree = SOURCE_ROOT; };
 		42F9A0AB26C43A3400BDC7D6 /* FindCharacterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindCharacterController.swift; sourceTree = "<group>"; };
-		42F9A0AD26C43EF800BDC7D6 /* SavedNewsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedNewsTableViewController.swift; sourceTree = "<group>"; };
+		42F9A0AD26C43EF800BDC7D6 /* SavedCharacterListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedCharacterListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,7 +53,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4210E6BA26C1B02700FB5624 /* Gloss in Frameworks */,
+				4206564726CBF59E00F57766 /* SwiftyJSON in Frameworks */,
+				4206564426CBF58500F57766 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -113,11 +115,11 @@
 		4210E6AE26C187BE00FB5624 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				4210E69A26C1879F00FB5624 /* NewsFeedViewController.swift */,
-				4210E6B426C18CBC00FB5624 /* NewsTableViewCell.swift */,
+				4210E69A26C1879F00FB5624 /* CharacterListViewController.swift */,
+				4210E6B426C18CBC00FB5624 /* CharacterListTableViewCell.swift */,
 				42F9A0A926C434E900BDC7D6 /* DetailViewController.swift */,
 				42F9A0AB26C43A3400BDC7D6 /* FindCharacterController.swift */,
-				42F9A0AD26C43EF800BDC7D6 /* SavedNewsTableViewController.swift */,
+				42F9A0AD26C43EF800BDC7D6 /* SavedCharacterListViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -164,7 +166,8 @@
 			);
 			name = AppleNewsFeed;
 			packageProductDependencies = (
-				4210E6B926C1B02700FB5624 /* Gloss */,
+				4206564326CBF58500F57766 /* Alamofire */,
+				4206564626CBF59E00F57766 /* SwiftyJSON */,
 			);
 			productName = AppleNewsFeed;
 			productReference = 4210E69326C1879F00FB5624 /* AppleNewsFeed.app */;
@@ -194,7 +197,8 @@
 			);
 			mainGroup = 4210E68A26C1879F00FB5624;
 			packageReferences = (
-				4210E6B826C1B02700FB5624 /* XCRemoteSwiftPackageReference "Gloss" */,
+				4206564226CBF58500F57766 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				4206564526CBF59E00F57766 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 			);
 			productRefGroup = 4210E69426C1879F00FB5624 /* Products */;
 			projectDirPath = "";
@@ -223,17 +227,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4210E69B26C1879F00FB5624 /* NewsFeedViewController.swift in Sources */,
+				4210E69B26C1879F00FB5624 /* CharacterListViewController.swift in Sources */,
 				42F9A0AC26C43A3400BDC7D6 /* FindCharacterController.swift in Sources */,
 				4206564126CA46FD00F57766 /* DesignButton.swift in Sources */,
 				4210E6A126C1879F00FB5624 /* AppleNewsFeed.xcdatamodeld in Sources */,
-				4210E6B526C18CBC00FB5624 /* NewsTableViewCell.swift in Sources */,
+				4210E6B526C18CBC00FB5624 /* CharacterListTableViewCell.swift in Sources */,
 				4206563D26CA46DA00F57766 /* DesignableTextField.swift in Sources */,
 				4206563F26CA46EB00F57766 /* BounceButton.swift in Sources */,
 				4210E69726C1879F00FB5624 /* AppDelegate.swift in Sources */,
 				4210E6B726C1906C00FB5624 /* Item.swift in Sources */,
 				4210E6B326C1882000FB5624 /* Alert.swift in Sources */,
-				42F9A0AE26C43EF800BDC7D6 /* SavedNewsTableViewController.swift in Sources */,
+				42F9A0AE26C43EF800BDC7D6 /* SavedCharacterListViewController.swift in Sources */,
 				4210E69926C1879F00FB5624 /* SceneDelegate.swift in Sources */,
 				42F9A0AA26C434E900BDC7D6 /* DetailViewController.swift in Sources */,
 			);
@@ -439,21 +443,34 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		4210E6B826C1B02700FB5624 /* XCRemoteSwiftPackageReference "Gloss" */ = {
+		4206564226CBF58500F57766 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/hkellaway/Gloss.git";
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 3.2.1;
+				minimumVersion = 5.4.3;
+			};
+		};
+		4206564526CBF59E00F57766 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.1;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		4210E6B926C1B02700FB5624 /* Gloss */ = {
+		4206564326CBF58500F57766 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 4210E6B826C1B02700FB5624 /* XCRemoteSwiftPackageReference "Gloss" */;
-			productName = Gloss;
+			package = 4206564226CBF58500F57766 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		4206564626CBF59E00F57766 /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4206564526CBF59E00F57766 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
 		};
 /* End XCSwiftPackageProductDependency section */
 

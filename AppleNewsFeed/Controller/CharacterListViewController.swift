@@ -6,9 +6,11 @@
 //
 
 import UIKit
-import Gloss
+import Alamofire
+import SwiftyJSON
+import CoreLocation
 
-class NewsFeedViewController: UIViewController {
+class CharacterListViewController: UIViewController {
     
     var items: [Item] = []
     
@@ -17,7 +19,7 @@ class NewsFeedViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "News"
+        self.title = "Marvel Characters"
         activityIndicatorView.isHidden = true
     }
     
@@ -34,7 +36,7 @@ class NewsFeedViewController: UIViewController {
     }
     
     @IBAction func infoBarItem(_ sender: Any) {
-        basicAlert(title: "News Feed Info!", message: "Press plane to fetch News Feed articles.")
+        basicAlert(title: "Marvel Character Info!", message: "Press plane to fetch Marvel Characters.")
     }
     
     @IBAction func getDataTapped(_ sender: Any) {
@@ -44,13 +46,13 @@ class NewsFeedViewController: UIViewController {
     }
     
     func handleGetData(){
-        let jsonUrl = "https://newsapi.org/v2/top-headlines?country=lv&category=sports&apiKey=32dacd77940549428c61f202bd523f5f"
+        let jsonUrl = "https://gateway.marvel.com:443/v1/public/characters?name=Captain%20America&orderBy=name&ts=1&apikey=70ba4f388906d13bd576ffb400428920&hash=98096b3587d12a61474d31b900eb831e"
         
         guard let url = URL(string: jsonUrl) else {return}
         
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = "GET"
-        urlRequest.setValue("application/json", forHTTPHeaderField: "Content-type")
+        urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
         let session = URLSession(configuration: .default)
         let task = session.dataTask(with: urlRequest) { data, response, err in
@@ -65,15 +67,16 @@ class NewsFeedViewController: UIViewController {
             do{
                 if let dictData = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]{
                     print("dictData", dictData)
-                    self.populateData(dictData)
+                   // self.populateData(dictData)
                 }
             }catch{
             }
         }
         task.resume()
     }
-    func populateData(_ dict:[String: Any]){
-        guard let responseDict = dict["articles"] as? [Gloss.JSON] else{
+    #warning("Funcion shows error - Cannot convert value of type '[SwiftyJSON.JSON]' to expected argument type '[Gloss.JSON]' (aka 'Array<Dictionary<String, Any>>').")
+    /*func populateData(_ dict:[String: Any]){
+        guard let responseDict = dict["results"] as? [SwiftyJSON.JSON] else{
             return
         }
         
@@ -83,11 +86,11 @@ class NewsFeedViewController: UIViewController {
             self.tableView.reloadData()
             self.activityIndicator(animated: false)
         }
-    }
+    }*/
 }
 
 //Mark: UITableViewDelegate, UITableViewDataSource
-extension NewsFeedViewController: UITableViewDelegate, UITableViewDataSource{
+extension CharacterListViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
         return items.count
@@ -95,19 +98,19 @@ extension NewsFeedViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "newsFeed", for: indexPath) as? NewsTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "characterList", for: indexPath) as? CharacterListTableViewCell else {
             return UITableViewCell()
         }
         
         let item = items[indexPath.row]
-        cell.newsTitleLabel.text = item.title
-        cell.newsTitleLabel.numberOfLines = 0
+        cell.characterNameLabel.text = item.name
+        cell.characterNameLabel.numberOfLines = 0
         
-        if let image = item.image{
-            cell.newsImageView.image = image
+        if let image = item.thumbnail{
+            cell.characterImageView.image = image
         }
-        let date = String(item.publishedAt.prefix(10))
-        self.title = "Sports News \(date)"
+        let titleInList = String(item.id.prefix(10))
+        self.title = "Avengers \(titleInList)"
         
         return cell
     }
@@ -125,12 +128,10 @@ extension NewsFeedViewController: UITableViewDelegate, UITableViewDataSource{
             return
         }
         let item = items[indexPath.row]
-        vc.contentString = item.description
-        vc.titleString = item.title
-        vc.webURLString = item.url
-        vc.newsImage = item.image
+        vc.descriptionString = item.description
+        vc.nameString = item.name
+        vc.charImage = item.thumbnail
         
-        //  present(vc, animated: true, completion: nil)
         navigationController?.pushViewController(vc, animated: true)
     }
     

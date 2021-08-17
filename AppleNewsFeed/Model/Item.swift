@@ -11,22 +11,20 @@ import Gloss
 class Item: JSONDecodable {
     
     var description: String
-    var title: String
-    var url: String
-    var urlToImage: String
-    var image: UIImage?
-    var publishedAt: String
+    var name: String
+    var path: String
+    var thumbnail: UIImage?
+    var id: String
     
     
     required init?(json: JSON) {
         self.description = "description" <~~ json ?? ""
-        self.title = "title" <~~ json ?? ""
-        self.url = "url" <~~ json ?? ""
-        self.urlToImage = "urlToImage" <~~ json ?? ""
-        self.publishedAt = "publishedAt" <~~ json ?? ""
+        self.name = "name" <~~ json ?? ""
+        self.path = "path" <~~ json ?? ""
+        self.id = "id" <~~ json ?? ""
         
         DispatchQueue.main.async {
-            self.image = self.laodImage()
+            self.thumbnail = self.laodImage()
         }
         
     }
@@ -34,11 +32,11 @@ class Item: JSONDecodable {
     private func laodImage() -> UIImage? {
         var returnImage: UIImage?
         
-        guard let url = URL(string: urlToImage) else {
+        guard let path = URL(string: path) else {
             return returnImage
         }
         
-        if let data = try? Data(contentsOf: url){
+        if let data = try? Data(contentsOf: path){
             if let image = UIImage(data: data){
                 returnImage = image
             }
