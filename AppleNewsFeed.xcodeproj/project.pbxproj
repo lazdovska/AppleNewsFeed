@@ -22,6 +22,7 @@
 		4210E6B326C1882000FB5624 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4210E6B226C1882000FB5624 /* Alert.swift */; };
 		4210E6B526C18CBC00FB5624 /* CharacterListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4210E6B426C18CBC00FB5624 /* CharacterListTableViewCell.swift */; };
 		4210E6B726C1906C00FB5624 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4210E6B626C1906C00FB5624 /* Item.swift */; };
+		426EEBCB26CCE8D40060202B /* Gloss in Frameworks */ = {isa = PBXBuildFile; productRef = 426EEBCA26CCE8D40060202B /* Gloss */; };
 		42F9A0AA26C434E900BDC7D6 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F9A0A926C434E900BDC7D6 /* DetailViewController.swift */; };
 		42F9A0AC26C43A3400BDC7D6 /* FindCharacterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F9A0AB26C43A3400BDC7D6 /* FindCharacterController.swift */; };
 		42F9A0AE26C43EF800BDC7D6 /* SavedCharacterListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F9A0AD26C43EF800BDC7D6 /* SavedCharacterListViewController.swift */; };
@@ -53,6 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				426EEBCB26CCE8D40060202B /* Gloss in Frameworks */,
 				4206564726CBF59E00F57766 /* SwiftyJSON in Frameworks */,
 				4206564426CBF58500F57766 /* Alamofire in Frameworks */,
 			);
@@ -168,6 +170,7 @@
 			packageProductDependencies = (
 				4206564326CBF58500F57766 /* Alamofire */,
 				4206564626CBF59E00F57766 /* SwiftyJSON */,
+				426EEBCA26CCE8D40060202B /* Gloss */,
 			);
 			productName = AppleNewsFeed;
 			productReference = 4210E69326C1879F00FB5624 /* AppleNewsFeed.app */;
@@ -199,6 +202,7 @@
 			packageReferences = (
 				4206564226CBF58500F57766 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				4206564526CBF59E00F57766 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+				426EEBC926CCE8D40060202B /* XCRemoteSwiftPackageReference "Gloss" */,
 			);
 			productRefGroup = 4210E69426C1879F00FB5624 /* Products */;
 			projectDirPath = "";
@@ -459,6 +463,14 @@
 				minimumVersion = 5.0.1;
 			};
 		};
+		426EEBC926CCE8D40060202B /* XCRemoteSwiftPackageReference "Gloss" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hkellaway/Gloss.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.2.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -471,6 +483,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 4206564526CBF59E00F57766 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
 			productName = SwiftyJSON;
+		};
+		426EEBCA26CCE8D40060202B /* Gloss */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 426EEBC926CCE8D40060202B /* XCRemoteSwiftPackageReference "Gloss" */;
+			productName = Gloss;
 		};
 /* End XCSwiftPackageProductDependency section */
 

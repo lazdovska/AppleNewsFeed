@@ -9,6 +9,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 import CoreLocation
+import Gloss
 
 class CharacterListViewController: UIViewController {
     
@@ -67,16 +68,16 @@ class CharacterListViewController: UIViewController {
             do{
                 if let dictData = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]{
                     print("dictData", dictData)
-                   // self.populateData(dictData)
+                    self.populateData(dictData)
                 }
             }catch{
             }
         }
         task.resume()
     }
-    #warning("Funcion shows error - Cannot convert value of type '[SwiftyJSON.JSON]' to expected argument type '[Gloss.JSON]' (aka 'Array<Dictionary<String, Any>>').")
-    /*func populateData(_ dict:[String: Any]){
-        guard let responseDict = dict["results"] as? [SwiftyJSON.JSON] else{
+    //#warning("Funcion shows error - Cannot convert value of type '[SwiftyJSON.JSON]' to expected argument type '[Gloss.JSON]' (aka 'Array<Dictionary<String, Any>>').")
+    func populateData(_ dict:[String: Any]){
+        guard let responseDict = dict["results"] as? [Gloss.JSON] else{
             return
         }
         
@@ -86,7 +87,7 @@ class CharacterListViewController: UIViewController {
             self.tableView.reloadData()
             self.activityIndicator(animated: false)
         }
-    }*/
+    }
 }
 
 //Mark: UITableViewDelegate, UITableViewDataSource
