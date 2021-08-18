@@ -6,14 +6,12 @@
 //
 
 import UIKit
-import Alamofire
-import SwiftyJSON
 import CoreLocation
 import Gloss
 
 class CharacterListViewController: UIViewController {
     
-    var items: [Item] = []
+    var results: [Result]? = []
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
@@ -47,54 +45,47 @@ class CharacterListViewController: UIViewController {
     }
     
     func handleGetData(){
-        let jsonUrl = "https://gateway.marvel.com:443/v1/public/characters?name=Captain%20America&orderBy=name&ts=1&apikey=70ba4f388906d13bd576ffb400428920&hash=98096b3587d12a61474d31b900eb831e"
-        
-        guard let url = URL(string: jsonUrl) else {return}
-        
-        var urlRequest = URLRequest(url: url)
-        urlRequest.httpMethod = "GET"
-        urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        
-        let session = URLSession(configuration: .default)
-        let task = session.dataTask(with: urlRequest) { data, response, err in
+            let jsonUrl = "https://gateway.marvel.com:443/v1/public/characters?series=Avengers%20354%2C%201991%2C%203621%2C%209085%2C%2022547%2C%2024229&orderBy=name&ts=1&apikey=70ba4f388906d13bd576ffb400428920&hash=98096b3587d12a61474d31b900eb831e"
             
-            if let err = err {
-                self.basicAlert(title: "Error!", message: "\(err.localizedDescription)")
-            }
-            guard let data = data else{
-                self.basicAlert(title: "Error!", message: "Something went wrong, no data")
-                return
-            }
-            do{
-                if let dictData = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]{
-                    print("dictData", dictData)
-                    self.populateData(dictData)
+            guard let url = URL(string: jsonUrl) else {return}
+            
+            var urlRequest = URLRequest(url: url)
+            urlRequest.httpMethod = "GET"
+            urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            
+            let session = URLSession(configuration: .default)
+            let task = session.dataTask(with: urlRequest) { data, response, err in
+                
+                if let err = err {
+                    self.basicAlert(title: "Error!", message: "\(err.localizedDescription)")
                 }
-            }catch{
+                guard let data = data else{
+                    self.basicAlert(title: "Error!", message: "Something went wrong, no data")
+                    return
+                }
+                do{
+                    let jsonData = try JSONDecoder().decode(Marvel.self, from: data)
+                                        
+                    DispatchQueue.main.async {
+                        self.results = jsonData.data?.results
+                        print("Marvel JSON self.results: ", self.results as Any)
+                        self.tableView.reloadData()
+                        self.activityIndicator(animated: false)
+                    }
+                    
+                }catch{
+                    print("err:", error)
+                }
             }
+            task.resume()
         }
-        task.resume()
-    }
-    //#warning("Funcion shows error - Cannot convert value of type '[SwiftyJSON.JSON]' to expected argument type '[Gloss.JSON]' (aka 'Array<Dictionary<String, Any>>').")
-    func populateData(_ dict:[String: Any]){
-        guard let responseDict = dict["results"] as? [Gloss.JSON] else{
-            return
-        }
-        
-        items = [Item].from(jsonArray: responseDict) ?? []
-        
-        DispatchQueue.main.async {
-            self.tableView.reloadData()
-            self.activityIndicator(animated: false)
-        }
-    }
 }
 
 //Mark: UITableViewDelegate, UITableViewDataSource
 extension CharacterListViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return items.count
+        return results!.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -103,15 +94,15 @@ extension CharacterListViewController: UITableViewDelegate, UITableViewDataSourc
             return UITableViewCell()
         }
         
-        let item = items[indexPath.row]
-        cell.characterNameLabel.text = item.name
+        let result = results?[indexPath.row]
+        cell.characterNameLabel.text = result?.name
         cell.characterNameLabel.numberOfLines = 0
         
-        if let image = item.thumbnail{
-            cell.characterImageView.image = image
-        }
-        let titleInList = String(item.id.prefix(10))
-        self.title = "Avengers \(titleInList)"
+      //  if let thumbnail = [Thumbnail.CodingKeys.Type]{
+        //    cell.characterImageView.thumbnail = nil
+      //  }
+       // let titleInList = String(result.id.prefix(10))
+        //self.title = "Avengers \(titleInList)"
         
         return cell
     }
@@ -128,13 +119,11 @@ extension CharacterListViewController: UITableViewDelegate, UITableViewDataSourc
         else {
             return
         }
-        let item = items[indexPath.row]
-        vc.descriptionString = item.description
-        vc.nameString = item.name
-        vc.charImage = item.thumbnail
+        vc.descriptionString = (results?[indexPath.row].resultDescription)!
+        vc.nameString = (results?[indexPath.row].name)!
+        //vc.charImage = (results?[indexPath.row].thumbnail)!
         
         navigationController?.pushViewController(vc, animated: true)
     }
     
 }
-

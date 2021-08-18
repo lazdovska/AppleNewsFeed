@@ -7,29 +7,27 @@
 
 import UIKit
 import WebKit
-    
-    protocol ChangeCharacterDelegate {
-        func userEnterCharacterName(character: String)
-    }
+
+protocol ChangeCharacterDelegate {
+    func userEnterCharacterName(character: String)
+}
 
 class FindCharacterController: UIViewController {
+    
+    var delegate: ChangeCharacterDelegate?
+    
+    @IBOutlet weak var characterTextField: DesignableTextField!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
-        var delegate: ChangeCharacterDelegate?
-        
-        @IBOutlet weak var characterTextField: DesignableTextField!
-        
-        override func viewDidLoad() {
-            super.viewDidLoad()
-
-        }
-        @IBAction func getCharacterTapped(_ sender: Any) {
-            guard let characterName = characterTextField.text else {return}
-            
-            if !characterName.isEmpty {
-                delegate?.userEnterCharacterName(character: characterName)
-                self.dismiss(animated: true, completion: nil)
-            }
-        }
-        
-
     }
+    @IBAction func getCharacterTapped(_ sender: Any) {
+        guard let characterName = characterTextField.text else {return}
+        
+        if !characterName.isEmpty {
+            delegate?.userEnterCharacterName(character: characterName)
+            self.dismiss(animated: true, completion: nil)
+        }
+    }
+}

@@ -13,7 +13,6 @@ class SavedCharacterListViewController: UITableViewController {
     
     var savedItems = [Items]()
     var context: NSManagedObjectContext?
-    var fromSavedItems = [Item]()
     // var webURLStringForSource = Int()
     var webURLString = String()
     
@@ -37,7 +36,7 @@ class SavedCharacterListViewController: UITableViewController {
         countItems()
     }
     
-    func saveData(){
+    func deleteData(){
         do {
             try context?.save()
             basicAlert(title: "Deleted!", message: "Oops you just erased from CoreData your saved character.")
@@ -91,9 +90,9 @@ class SavedCharacterListViewController: UITableViewController {
         cell.characterNameLabel.text = item.nameText
         cell.characterNameLabel.numberOfLines = 0
         
-        if let image = UIImage(data: item.image!) {
-            cell.characterImageView.image = image
-        }
+       // if let image = UIImage(data: item.image!) {
+        //    cell.characterImageView.image = image
+       // }
         
         
         return cell
@@ -123,7 +122,7 @@ class SavedCharacterListViewController: UITableViewController {
             deleteAlert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: {_ in
                 let item = self.savedItems[indexPath.row]
                 self.context?.delete(item)
-                self.saveData()
+                self.deleteData()
             }))
             self.present(deleteAlert, animated: true)
         }
