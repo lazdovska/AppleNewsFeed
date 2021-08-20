@@ -9,7 +9,7 @@ import UIKit
 import WebKit
 
 protocol ChangeCharacterDelegate {
-    func userEnterCharacterName(character: String)
+    func updateCharacterData(character: String)
 }
 
 class FindCharacterController: UIViewController {
@@ -26,7 +26,7 @@ class FindCharacterController: UIViewController {
         guard let characterName = characterTextField.text else {return}
         
         if !characterName.isEmpty {
-            delegate?.userEnterCharacterName(character: characterName)
+            delegate?.updateCharacterData(character: characterName)
             self.dismiss(animated: true, completion: nil)
         }
     }

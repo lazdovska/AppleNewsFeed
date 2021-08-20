@@ -10,8 +10,6 @@
 		4206563D26CA46DA00F57766 /* DesignableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4206563C26CA46DA00F57766 /* DesignableTextField.swift */; };
 		4206563F26CA46EB00F57766 /* BounceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4206563E26CA46EB00F57766 /* BounceButton.swift */; };
 		4206564126CA46FD00F57766 /* DesignButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4206564026CA46FD00F57766 /* DesignButton.swift */; };
-		4206564426CBF58500F57766 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 4206564326CBF58500F57766 /* Alamofire */; };
-		4206564726CBF59E00F57766 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 4206564626CBF59E00F57766 /* SwiftyJSON */; };
 		4210E69726C1879F00FB5624 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4210E69626C1879F00FB5624 /* AppDelegate.swift */; };
 		4210E69926C1879F00FB5624 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4210E69826C1879F00FB5624 /* SceneDelegate.swift */; };
 		4210E69B26C1879F00FB5624 /* CharacterListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4210E69A26C1879F00FB5624 /* CharacterListViewController.swift */; };
@@ -22,6 +20,8 @@
 		4210E6B326C1882000FB5624 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4210E6B226C1882000FB5624 /* Alert.swift */; };
 		4210E6B526C18CBC00FB5624 /* CharacterListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4210E6B426C18CBC00FB5624 /* CharacterListTableViewCell.swift */; };
 		4210E6B726C1906C00FB5624 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4210E6B626C1906C00FB5624 /* Item.swift */; };
+		426D5B5226CFE6F3007610DE /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426D5B5126CFE6F3007610DE /* Image.swift */; };
+		426D5B5426CFE6FE007610DE /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426D5B5326CFE6FE007610DE /* DataManager.swift */; };
 		426EEBCB26CCE8D40060202B /* Gloss in Frameworks */ = {isa = PBXBuildFile; productRef = 426EEBCA26CCE8D40060202B /* Gloss */; };
 		42F9A0AA26C434E900BDC7D6 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F9A0A926C434E900BDC7D6 /* DetailViewController.swift */; };
 		42F9A0AC26C43A3400BDC7D6 /* FindCharacterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F9A0AB26C43A3400BDC7D6 /* FindCharacterController.swift */; };
@@ -44,6 +44,8 @@
 		4210E6B226C1882000FB5624 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		4210E6B426C18CBC00FB5624 /* CharacterListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListTableViewCell.swift; sourceTree = "<group>"; };
 		4210E6B626C1906C00FB5624 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		426D5B5126CFE6F3007610DE /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
+		426D5B5326CFE6FE007610DE /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		42F9A0A926C434E900BDC7D6 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DetailViewController.swift; path = AppleNewsFeed/Controller/DetailViewController.swift; sourceTree = SOURCE_ROOT; };
 		42F9A0AB26C43A3400BDC7D6 /* FindCharacterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindCharacterController.swift; sourceTree = "<group>"; };
 		42F9A0AD26C43EF800BDC7D6 /* SavedCharacterListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedCharacterListViewController.swift; sourceTree = "<group>"; };
@@ -55,8 +57,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				426EEBCB26CCE8D40060202B /* Gloss in Frameworks */,
-				4206564726CBF59E00F57766 /* SwiftyJSON in Frameworks */,
-				4206564426CBF58500F57766 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,6 +139,8 @@
 			isa = PBXGroup;
 			children = (
 				4210E6B626C1906C00FB5624 /* Item.swift */,
+				426D5B5126CFE6F3007610DE /* Image.swift */,
+				426D5B5326CFE6FE007610DE /* DataManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -168,8 +170,6 @@
 			);
 			name = AppleNewsFeed;
 			packageProductDependencies = (
-				4206564326CBF58500F57766 /* Alamofire */,
-				4206564626CBF59E00F57766 /* SwiftyJSON */,
 				426EEBCA26CCE8D40060202B /* Gloss */,
 			);
 			productName = AppleNewsFeed;
@@ -200,8 +200,6 @@
 			);
 			mainGroup = 4210E68A26C1879F00FB5624;
 			packageReferences = (
-				4206564226CBF58500F57766 /* XCRemoteSwiftPackageReference "Alamofire" */,
-				4206564526CBF59E00F57766 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 				426EEBC926CCE8D40060202B /* XCRemoteSwiftPackageReference "Gloss" */,
 			);
 			productRefGroup = 4210E69426C1879F00FB5624 /* Products */;
@@ -232,12 +230,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				4210E69B26C1879F00FB5624 /* CharacterListViewController.swift in Sources */,
+				426D5B5426CFE6FE007610DE /* DataManager.swift in Sources */,
 				42F9A0AC26C43A3400BDC7D6 /* FindCharacterController.swift in Sources */,
 				4206564126CA46FD00F57766 /* DesignButton.swift in Sources */,
 				4210E6A126C1879F00FB5624 /* AppleNewsFeed.xcdatamodeld in Sources */,
 				4210E6B526C18CBC00FB5624 /* CharacterListTableViewCell.swift in Sources */,
 				4206563D26CA46DA00F57766 /* DesignableTextField.swift in Sources */,
 				4206563F26CA46EB00F57766 /* BounceButton.swift in Sources */,
+				426D5B5226CFE6F3007610DE /* Image.swift in Sources */,
 				4210E69726C1879F00FB5624 /* AppDelegate.swift in Sources */,
 				4210E6B726C1906C00FB5624 /* Item.swift in Sources */,
 				4210E6B326C1882000FB5624 /* Alert.swift in Sources */,
@@ -447,22 +447,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		4206564226CBF58500F57766 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.4.3;
-			};
-		};
-		4206564526CBF59E00F57766 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.1;
-			};
-		};
 		426EEBC926CCE8D40060202B /* XCRemoteSwiftPackageReference "Gloss" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/hkellaway/Gloss.git";
@@ -474,16 +458,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		4206564326CBF58500F57766 /* Alamofire */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 4206564226CBF58500F57766 /* XCRemoteSwiftPackageReference "Alamofire" */;
-			productName = Alamofire;
-		};
-		4206564626CBF59E00F57766 /* SwiftyJSON */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 4206564526CBF59E00F57766 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
-			productName = SwiftyJSON;
-		};
 		426EEBCA26CCE8D40060202B /* Gloss */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 426EEBC926CCE8D40060202B /* XCRemoteSwiftPackageReference "Gloss" */;

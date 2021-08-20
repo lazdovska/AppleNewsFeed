@@ -12,6 +12,8 @@ import Gloss
 class CharacterListViewController: UIViewController {
     
     var results: [Result]? = []
+    var image = Image.createImage()
+    var find = FindCharacterController()
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
@@ -45,7 +47,7 @@ class CharacterListViewController: UIViewController {
     }
     
     func handleGetData(){
-            let jsonUrl = "https://gateway.marvel.com:443/v1/public/characters?series=Avengers%20354%2C%201991%2C%203621%2C%209085%2C%2022547%2C%2024229&orderBy=name&ts=1&apikey=70ba4f388906d13bd576ffb400428920&hash=98096b3587d12a61474d31b900eb831e"
+        let jsonUrl = "https://gateway.marvel.com:443/v1/public/characters?series=Avengers%209085%2C%2022547%2C%2024229&orderBy=name&ts=1&apikey=70ba4f388906d13bd576ffb400428920&hash=98096b3587d12a61474d31b900eb831e"
             
             guard let url = URL(string: jsonUrl) else {return}
             
@@ -95,14 +97,11 @@ extension CharacterListViewController: UITableViewDelegate, UITableViewDataSourc
         }
         
         let result = results?[indexPath.row]
-        cell.characterNameLabel.text = result?.name
-        cell.characterNameLabel.numberOfLines = 0
-        
-      //  if let thumbnail = [Thumbnail.CodingKeys.Type]{
-        //    cell.characterImageView.thumbnail = nil
-      //  }
-       // let titleInList = String(result.id.prefix(10))
-        //self.title = "Avengers \(titleInList)"
+                let poster = results?[indexPath.row]
+                cell.characterNameLabel.text = result?.name
+                cell.characterNameLabel.numberOfLines = 0
+                cell.characterImageView?.image = UIImage(named: (poster?.name)!)
+        self.title = "Avengers"
         
         return cell
     }
@@ -111,7 +110,14 @@ extension CharacterListViewController: UITableViewDelegate, UITableViewDataSourc
         
         return 100
     }
-    
+    func updateCharacterData() -> Any{
+            if find.characterTextField.isEditing{
+                do{
+                    handleGetData()
+        }
+            }
+            return UITableViewCell()
+    }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
@@ -119,11 +125,13 @@ extension CharacterListViewController: UITableViewDelegate, UITableViewDataSourc
         else {
             return
         }
-        vc.descriptionString = (results?[indexPath.row].resultDescription)!
-        vc.nameString = (results?[indexPath.row].name)!
-        //vc.charImage = (results?[indexPath.row].thumbnail)!
+        let result = results?[indexPath.row]
+        vc.descriptionString = (result?.resultDescription)!
+        vc.nameString = (result?.name)!
+        //vc.posters = image[indexPath.row].poster
         
         navigationController?.pushViewController(vc, animated: true)
     }
     
 }
+
