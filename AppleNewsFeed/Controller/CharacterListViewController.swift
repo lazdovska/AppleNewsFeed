@@ -126,9 +126,10 @@ extension CharacterListViewController: UITableViewDelegate, UITableViewDataSourc
             return
         }
         let result = results?[indexPath.row]
+        let poster = results?[indexPath.row]
         vc.descriptionString = (result?.resultDescription)!
         vc.nameString = (result?.name)!
-        //vc.posters = image[indexPath.row].poster
+        vc.images = UIImage(named: (poster?.name)!)!
         
         navigationController?.pushViewController(vc, animated: true)
     }

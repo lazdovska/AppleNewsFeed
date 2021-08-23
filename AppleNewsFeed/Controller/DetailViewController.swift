@@ -18,7 +18,7 @@ class DetailViewController: UIViewController {
     
     var nameString = String()
     var descriptionString = String()
-    //var charImage = Thumbnail?
+    var images = UIImage()
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var characterImageView: UIImageView!
@@ -33,8 +33,7 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         nameLabel.text = nameString
         descriptionTextView.text = descriptionString
-        //characterImageView.image = UIImage(named: posters.poster)
-        //newsImageView.sizeThatFits(250)
+        characterImageView.image = images
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         context = appDelegate.persistentContainer.viewContext
@@ -56,11 +55,11 @@ class DetailViewController: UIViewController {
         newCharacter.nameText = nameString
         newCharacter.descriptionText = descriptionString
         
-            //   guard let imageData:String = image. {
-                //        return}
-                //    if !imageData.isEmpty {
-                 //   newCharacter.image = imageData
-                  //  }
+        //guard let imageData:String = images? else {
+         //               return}
+          //          if !imageData.isEmpty {
+           //         newCharacter.image = imageData
+           //         }
         self.savedItems.append(newCharacter)
         saveData()
         
