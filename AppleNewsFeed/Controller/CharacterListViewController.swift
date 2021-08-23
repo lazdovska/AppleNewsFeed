@@ -127,8 +127,16 @@ extension CharacterListViewController: UITableViewDelegate, UITableViewDataSourc
         }
         let result = results?[indexPath.row]
         let poster = results?[indexPath.row]
+        let series = results?[indexPath.row].series?.items
+        let comics = results?[indexPath.row].comics?.items
+        let stories = results?[indexPath.row].stories?.items
+        
         vc.descriptionString = (result?.resultDescription)!
         vc.nameString = (result?.name)!
+        #warning("No member Name Error")
+       // vc.seriesString = (series?.name)!
+        //vc.comicsString = (comics?.name)!
+       // vc.storiesString = (stories?.name)!
         vc.images = UIImage(named: (poster?.name)!)!
         
         navigationController?.pushViewController(vc, animated: true)

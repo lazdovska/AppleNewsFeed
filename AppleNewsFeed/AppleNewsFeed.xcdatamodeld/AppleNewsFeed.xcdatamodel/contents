@@ -2,7 +2,7 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20G95" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Items" representedClassName="Items" syncable="YES" codeGenerationType="class">
         <attribute name="descriptionText" optional="YES" attributeType="String"/>
-        <attribute name="image" optional="YES" attributeType="Binary"/>
+        <attribute name="image" optional="YES" attributeType="String"/>
         <attribute name="nameText" optional="YES" attributeType="String"/>
         <attribute name="position" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
     </entity>

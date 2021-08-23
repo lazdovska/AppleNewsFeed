@@ -15,10 +15,14 @@ class DetailViewController: UIViewController {
     var comics: [ComicsItem] = []
     var stories: [StoriesItem] = []
     var series: [Result]? = []
+    var imageString = Image.createImage()
     
     var nameString = String()
     var descriptionString = String()
     var images = UIImage()
+    var seriesString = String()
+    var comicsString = String()
+    var storiesString = String()
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var characterImageView: UIImageView!
@@ -34,6 +38,9 @@ class DetailViewController: UIViewController {
         nameLabel.text = nameString
         descriptionTextView.text = descriptionString
         characterImageView.image = images
+        segmentLabelResult.text = seriesString
+        segmentLabelResult.text = comicsString
+        segmentLabelResult.text = storiesString
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         context = appDelegate.persistentContainer.viewContext
@@ -55,10 +62,10 @@ class DetailViewController: UIViewController {
         newCharacter.nameText = nameString
         newCharacter.descriptionText = descriptionString
         
-        //guard let imageData:String = images? else {
+       // guard let imageData: String = imageString?.text else {
          //               return}
-          //          if !imageData.isEmpty {
-           //         newCharacter.image = imageData
+         //           if !imageData.isEmpty {
+          //          newCharacter.image = imageData
            //         }
         self.savedItems.append(newCharacter)
         saveData()
@@ -66,14 +73,17 @@ class DetailViewController: UIViewController {
     }
 
     @IBAction func segmentValueChange(_ sender: UISegmentedControl) {
+        let seriesResult = seriesString
+        let comicsResult = comicsString
+        let storiesResult = storiesString
             switch charSegmentControl.selectedSegmentIndex
             {
             case 0:
-                segmentLabelResult.text = "series.series"
+                segmentLabelResult.text = "\(seriesResult)"
             case 1:
-                segmentLabelResult.text = "comics.name"
+                segmentLabelResult.text = "\(comicsResult)"
             case 2:
-                segmentLabelResult.text = "comics.stories"
+                segmentLabelResult.text = "\(storiesResult)"
             default:
                 break
             }
