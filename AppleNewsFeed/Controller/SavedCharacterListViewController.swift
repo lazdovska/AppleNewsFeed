@@ -92,12 +92,6 @@ class SavedCharacterListViewController: UITableViewController {
             if let imageData = item.image {
                 cell.characterImageView.image = UIImage(data: imageData as Data)
             }
-       // guard let imageData: String = item.image else {
-        //                return}
-         //          if !imageData.isEmpty {
-           //         cell.characterImageView.image = imageData
-           //     }
-        
         return cell
     }
     
@@ -112,6 +106,13 @@ class SavedCharacterListViewController: UITableViewController {
         else {
             return
         }
+        let resultName = savedItems[indexPath.row].nameText
+        let resultDescription = savedItems[indexPath.row].descriptionText
+        let poster = savedItems[indexPath.row].image
+        destination.descriptionString = (resultDescription!)
+        destination.nameString = (resultName!)
+        destination.images = UIImage(data: poster!)!
+        
         self.title = "Saved"
         
         navigationController?.pushViewController(destination, animated: true)
