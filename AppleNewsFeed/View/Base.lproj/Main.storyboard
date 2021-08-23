@@ -331,6 +331,10 @@
                                         <constraint firstItem="7Fb-SI-oN5" firstAttribute="centerY" secondItem="XEB-We-b0s" secondAttribute="centerY" id="khg-hM-ItB"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="characterImageView" destination="iPt-3e-167" id="OWG-z1-Mws"/>
+                                    <outlet property="characterNameLabel" destination="0DR-7m-KVH" id="akK-TD-7pI"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -397,14 +401,15 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="sc2-U1-KES">
                                 <rect key="frame" x="0.0" y="-44" width="414" height="886"/>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="52" translatesAutoresizingMaskIntoConstraints="NO" id="cMy-Ob-ymA">
-                                <rect key="frame" x="67" y="86" width="280" height="126"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="52" translatesAutoresizingMaskIntoConstraints="NO" id="Zsx-pg-G3N">
+                                <rect key="frame" x="67" y="63" width="280" height="126"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Character Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Tj-V1-gr2" customClass="DesignableTextField" customModule="AppleNewsFeed">
+                                    <textField opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Character Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Tj-V1-gr2" customClass="DesignableTextField" customModule="AppleNewsFeed">
                                         <rect key="frame" x="0.0" y="0.0" width="280" height="34"/>
                                         <color key="backgroundColor" systemColor="secondaryLabelColor"/>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="280" id="41r-me-30Z"/>
                                             <constraint firstAttribute="height" constant="34" id="lbL-xS-63g"/>
                                         </constraints>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -418,7 +423,7 @@
                                                 <color key="value" systemColor="systemPurpleColor"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="10"/>
+                                                <real key="value" value="11"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="image" keyPath="leftImage" value="appstore"/>
                                             <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
@@ -452,17 +457,16 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="quaternarySystemFillColor"/>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="cR9-XR-m6C"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="cMy-Ob-ymA" firstAttribute="centerX" secondItem="6qo-41-DXu" secondAttribute="centerX" id="0OI-MY-a1p"/>
-                            <constraint firstItem="cMy-Ob-ymA" firstAttribute="centerY" secondItem="6qo-41-DXu" secondAttribute="centerY" constant="-272" id="45q-hl-3GL"/>
                             <constraint firstItem="cR9-XR-m6C" firstAttribute="bottom" secondItem="sc2-U1-KES" secondAttribute="bottom" constant="-34" id="Iz4-OD-zgt"/>
                             <constraint firstItem="sc2-U1-KES" firstAttribute="leading" secondItem="cR9-XR-m6C" secondAttribute="leading" id="Py2-7K-ven"/>
                             <constraint firstItem="sc2-U1-KES" firstAttribute="top" secondItem="cR9-XR-m6C" secondAttribute="top" constant="-44" id="rtm-az-6cV"/>
+                            <constraint firstItem="Zsx-pg-G3N" firstAttribute="centerX" secondItem="6qo-41-DXu" secondAttribute="centerX" id="wag-01-khD"/>
+                            <constraint firstItem="Zsx-pg-G3N" firstAttribute="centerY" secondItem="6qo-41-DXu" secondAttribute="centerY" constant="-295" id="wu8-xn-wKR"/>
                             <constraint firstItem="cR9-XR-m6C" firstAttribute="trailing" secondItem="sc2-U1-KES" secondAttribute="trailing" id="x3W-eK-C03"/>
                         </constraints>
                     </view>
@@ -477,7 +481,7 @@
     </scenes>
     <designables>
         <designable name="0Tj-V1-gr2">
-            <size key="intrinsicContentSize" width="204.66666666666666" height="34"/>
+            <size key="intrinsicContentSize" width="169.66666666666666" height="34"/>
         </designable>
         <designable name="fc0-71-vBx">
             <size key="intrinsicContentSize" width="172" height="36"/>
@@ -494,9 +498,6 @@
         <image name="square.on.square.dashed" catalog="system" width="128" height="113"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="quaternarySystemFillColor">
-            <color red="0.45490196078431372" green="0.45490196078431372" blue="0.50196078431372548" alpha="0.080000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>

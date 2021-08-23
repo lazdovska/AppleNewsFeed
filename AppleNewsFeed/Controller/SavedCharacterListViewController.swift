@@ -13,8 +13,7 @@ class SavedCharacterListViewController: UITableViewController {
     
     var savedItems = [Items]()
     var context: NSManagedObjectContext?
-    // var webURLStringForSource = Int()
-    var webURLString = String()
+    
     
     @IBOutlet weak var editButtonTitle: UIBarButtonItem!
     
@@ -90,10 +89,14 @@ class SavedCharacterListViewController: UITableViewController {
         cell.characterNameLabel.text = item.nameText
         cell.characterNameLabel.numberOfLines = 0
         
-       // if let image = UIImage(data: item.image!) {
-        //    cell.characterImageView.image = image
-       // }
-        
+            if let imageData = item.image {
+                cell.characterImageView.image = UIImage(data: imageData as Data)
+            }
+       // guard let imageData: String = item.image else {
+        //                return}
+         //          if !imageData.isEmpty {
+           //         cell.characterImageView.image = imageData
+           //     }
         
         return cell
     }
