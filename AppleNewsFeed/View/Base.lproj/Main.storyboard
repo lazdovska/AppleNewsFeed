@@ -93,20 +93,12 @@
                                 <action selector="infoBarItem:" destination="BYZ-38-t0r" id="ekg-G9-cbI"/>
                             </connections>
                         </barButtonItem>
-                        <rightBarButtonItems>
-                            <barButtonItem title="Item" image="paperplane.fill" catalog="system" id="8CM-8r-U5b">
-                                <color key="tintColor" red="0.67273658510000001" green="0.51557576660000004" blue="0.87603706120000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <connections>
-                                    <action selector="getDataTapped:" destination="BYZ-38-t0r" id="m3w-Vz-iBs"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem image="magnifyingglass" catalog="system" id="yGh-T7-ggN">
-                                <color key="tintColor" red="0.67273658510000001" green="0.51557576660000004" blue="0.87603706120000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <connections>
-                                    <segue destination="j7p-ZN-QE0" kind="presentation" id="x19-6j-66M"/>
-                                </connections>
-                            </barButtonItem>
-                        </rightBarButtonItems>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="paperplane.fill" catalog="system" id="8CM-8r-U5b">
+                            <color key="tintColor" red="0.67273658510000001" green="0.51557576660000004" blue="0.87603706120000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="getDataTapped:" destination="BYZ-38-t0r" id="m3w-Vz-iBs"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="activityIndicatorView" destination="hNY-Ho-Nez" id="E4d-Xx-80K"/>
@@ -349,12 +341,20 @@
                                 <action selector="infoButtonTapped:" destination="xY0-m7-wCr" id="O80-pD-P9C"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Edit" id="V8W-Z5-dBg">
-                            <color key="tintColor" red="0.67273658510000001" green="0.51557576660000004" blue="0.87603706120000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <connections>
-                                <action selector="editButtonTapped:" destination="xY0-m7-wCr" id="kMG-su-Boc"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem title="Edit" id="V8W-Z5-dBg">
+                                <color key="tintColor" red="0.67273658510000001" green="0.51557576660000004" blue="0.87603706120000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="editButtonTapped:" destination="xY0-m7-wCr" id="kMG-su-Boc"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem image="magnifyingglass" catalog="system" id="sVd-gW-RCI">
+                                <color key="tintColor" red="0.67273658510000001" green="0.51557576660000004" blue="0.87603706120000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <segue destination="j7p-ZN-QE0" kind="presentation" id="Y54-AN-ZPg"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="editButtonTitle" destination="V8W-Z5-dBg" id="L4L-gN-uw8"/>
@@ -481,7 +481,7 @@
     </scenes>
     <designables>
         <designable name="0Tj-V1-gr2">
-            <size key="intrinsicContentSize" width="169.66666666666666" height="34"/>
+            <size key="intrinsicContentSize" width="204.66666666666666" height="34"/>
         </designable>
         <designable name="fc0-71-vBx">
             <size key="intrinsicContentSize" width="172" height="36"/>

@@ -120,12 +120,13 @@ extension CharacterListViewController: UITableViewDelegate, UITableViewDataSourc
         }
         let result = results?[indexPath.row]
         let poster = results?[indexPath.row]
-        #warning("Can't get data from Model Items - Results - Items - ComicItems - Name")
-        /*let seriesPath = results?[indexPath.row].series?.items
-        print ("\(String(describing: series))")
+       
+        //let seriesPath = results?[indexPath.row].series?.items
+        #warning("nameSeries Returns Empty array")
         let nameSeries = self.series!.compactMap({(item: ComicsItem) -> String in return item.name!})
-       vc.seriesString = nameSeries
- */
+        print ("\(String(describing: nameSeries))")
+        vc.seriesString = nameSeries.joined(separator: ",")
+
         
         
         vc.descriptionString = (result?.resultDescription)!
