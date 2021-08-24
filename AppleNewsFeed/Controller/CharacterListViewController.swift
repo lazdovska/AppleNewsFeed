@@ -12,6 +12,7 @@ import Gloss
 class CharacterListViewController: UIViewController {
     
     var results: [Result]? = []
+    var series: [ComicsItem]? = []
     var image = Image.createImage()
     var find = FindCharacterController()
     
@@ -82,8 +83,8 @@ class CharacterListViewController: UIViewController {
             task.resume()
         }
 }
+//MARK: UITableViewDelegate, UITableViewDataSource
 
-//Mark: UITableViewDelegate, UITableViewDataSource
 extension CharacterListViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
@@ -110,14 +111,6 @@ extension CharacterListViewController: UITableViewDelegate, UITableViewDataSourc
         
         return 100
     }
-    func updateCharacterData() -> Any{
-            if find.characterTextField.isEditing{
-                do{
-                    handleGetData()
-        }
-            }
-            return UITableViewCell()
-    }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
@@ -127,16 +120,16 @@ extension CharacterListViewController: UITableViewDelegate, UITableViewDataSourc
         }
         let result = results?[indexPath.row]
         let poster = results?[indexPath.row]
-        let series = results?[indexPath.row].series?.items
-        let comics = results?[indexPath.row].comics?.items
-        let stories = results?[indexPath.row].stories?.items
+        #warning("Can't get data from Model Items - Results - Items - ComicItems - Name")
+        /*let seriesPath = results?[indexPath.row].series?.items
+        print ("\(String(describing: series))")
+        let nameSeries = self.series!.compactMap({(item: ComicsItem) -> String in return item.name!})
+       vc.seriesString = nameSeries
+ */
+        
         
         vc.descriptionString = (result?.resultDescription)!
         vc.nameString = (result?.name)!
-        #warning("No member Name Error")
-       // vc.seriesString = (series?.name)!
-        //vc.comicsString = (comics?.name)!
-       // vc.storiesString = (stories?.name)!
         vc.images = UIImage(named: (poster?.name)!)!
         
         navigationController?.pushViewController(vc, animated: true)

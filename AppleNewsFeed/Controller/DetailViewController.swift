@@ -38,8 +38,6 @@ class DetailViewController: UIViewController {
         descriptionTextView.text = descriptionString
         characterImageView.image = images
         segmentLabelResult.text = seriesString
-        segmentLabelResult.text = comicsString
-        segmentLabelResult.text = storiesString
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         context = appDelegate.persistentContainer.viewContext
