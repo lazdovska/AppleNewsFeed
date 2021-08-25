@@ -58,6 +58,9 @@ class DetailViewController: UIViewController {
         let newCharacter = Items(context: self.context!)
         newCharacter.nameText = nameString
         newCharacter.descriptionText = descriptionString
+        newCharacter.seriesText = seriesString
+        newCharacter.comicsText = comicsString
+        newCharacter.storiesText = storiesString
         if let img = UIImage(named: nameString) {
             guard let data = img.pngData() else{return}
             if !data.isEmpty {

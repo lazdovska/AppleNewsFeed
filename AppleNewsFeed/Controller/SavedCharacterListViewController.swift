@@ -47,8 +47,12 @@ class SavedCharacterListViewController: UITableViewController, ChangeCharacterDe
     }
     func loadData(){
         let request: NSFetchRequest<Items> = Items.fetchRequest()
+        let sectionSortDescriptor = NSSortDescriptor(key: "nameText", ascending: true)
+                let sortDescriptors = [sectionSortDescriptor]
+                request.sortDescriptors = sortDescriptors
         do {
             savedItems = try (context?.fetch(request))!
+            
             tableView.reloadData()
         }catch{
             fatalError("Error in retrieving Saved Items")
@@ -135,11 +139,16 @@ class SavedCharacterListViewController: UITableViewController, ChangeCharacterDe
         }
         let resultName = savedItems[indexPath.row].nameText
         let resultDescription = savedItems[indexPath.row].descriptionText
+        let resultSeries = savedItems[indexPath.row].seriesText
+        let resultComics = savedItems[indexPath.row].comicsText
+        let resultStories = savedItems[indexPath.row].storiesText
         let poster = savedItems[indexPath.row].image
         destination.descriptionString = (resultDescription!)
         destination.nameString = (resultName!)
         destination.images = UIImage(data: poster!)!
-        
+        destination.seriesString = (resultSeries!)
+        destination.comicsString = (resultComics!)
+        destination.storiesString = (resultStories!)
         self.title = "Saved"
         
         navigationController?.pushViewController(destination, animated: true)

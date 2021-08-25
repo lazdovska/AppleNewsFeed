@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20G95" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Items" representedClassName="Items" syncable="YES" codeGenerationType="class">
+        <attribute name="comicsText" optional="YES" attributeType="String"/>
         <attribute name="descriptionText" optional="YES" attributeType="String"/>
         <attribute name="image" optional="YES" attributeType="Binary"/>
         <attribute name="nameText" optional="YES" attributeType="String"/>
         <attribute name="position" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="seriesText" optional="YES" attributeType="String"/>
+        <attribute name="storiesText" optional="YES" attributeType="String"/>
     </entity>
     <elements>
-        <element name="Items" positionX="-63" positionY="-18" width="128" height="89"/>
+        <element name="Items" positionX="-63" positionY="-18" width="128" height="134"/>
     </elements>
 </model>
