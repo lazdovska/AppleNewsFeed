@@ -164,66 +164,67 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="95" translatesAutoresizingMaskIntoConstraints="NO" id="Lx7-Ou-Jwc">
-                                <rect key="frame" x="39.666666666666657" y="588" width="335" height="220"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="7Le-9n-9Ip">
+                                <rect key="frame" x="39.666666666666657" y="699" width="335" height="101"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LIst of series, comics and stories" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EP6-Wf-fgG">
-                                        <rect key="frame" x="0.0" y="0.0" width="335" height="24"/>
-                                        <color key="backgroundColor" systemColor="separatorColor"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="7Le-9n-9Ip">
-                                        <rect key="frame" x="0.0" y="119" width="335" height="101"/>
-                                        <subviews>
-                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="tdu-P8-nk8">
-                                                <rect key="frame" x="0.0" y="0.0" width="335" height="32"/>
-                                                <color key="backgroundColor" red="0.83014148473739624" green="0.67326134443283081" blue="0.92434126138687134" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="335" id="ZQI-xF-fxI"/>
-                                                    <constraint firstAttribute="height" constant="31" id="t4u-KQ-Idc"/>
-                                                </constraints>
-                                                <segments>
-                                                    <segment title="Series"/>
-                                                    <segment title="Comics"/>
-                                                    <segment title="Stories"/>
-                                                </segments>
-                                                <connections>
-                                                    <action selector="segmentValueChange:" destination="xeB-9Z-aNI" eventType="valueChanged" id="TsB-IN-NJ9"/>
-                                                </connections>
-                                            </segmentedControl>
-                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wuy-WC-u5q">
-                                                <rect key="frame" x="107.33333333333334" y="39.333333333333314" width="120" height="61.666666666666686"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="62" id="CUD-bH-cZx"/>
-                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="r5x-NN-F0e"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                <color key="tintColor" red="0.88772940635681152" green="0.85082417726516724" blue="0.95731180906295776" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <state key="normal" title="Save" backgroundImage="arrow.down.doc.fill" catalog="system">
-                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="savedButtonTapped:" destination="xeB-9Z-aNI" eventType="touchUpInside" id="51r-hX-LAB"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="tdu-P8-nk8">
+                                        <rect key="frame" x="0.0" y="0.0" width="335" height="32"/>
+                                        <color key="backgroundColor" red="0.83014148473739624" green="0.67326134443283081" blue="0.92434126138687134" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="335" id="ZQI-xF-fxI"/>
+                                            <constraint firstAttribute="height" constant="31" id="t4u-KQ-Idc"/>
+                                        </constraints>
+                                        <segments>
+                                            <segment title="Series"/>
+                                            <segment title="Comics"/>
+                                            <segment title="Stories"/>
+                                        </segments>
+                                        <connections>
+                                            <action selector="segmentValueChange:" destination="xeB-9Z-aNI" eventType="valueChanged" id="TsB-IN-NJ9"/>
+                                        </connections>
+                                    </segmentedControl>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wuy-WC-u5q">
+                                        <rect key="frame" x="107.33333333333334" y="39.333333333333314" width="120" height="61.666666666666686"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="62" id="CUD-bH-cZx"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="r5x-NN-F0e"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <color key="tintColor" red="0.88772940635681152" green="0.85082417726516724" blue="0.95731180906295776" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Save" backgroundImage="arrow.down.doc.fill" catalog="system">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="savedButtonTapped:" destination="xeB-9Z-aNI" eventType="touchUpInside" id="51r-hX-LAB"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LIst of series, comics and stories" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EP6-Wf-fgG">
+                                <rect key="frame" x="32" y="354" width="350" height="319"/>
+                                <color key="backgroundColor" systemColor="separatorColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="350" id="M9W-jf-Zul"/>
+                                    <constraint firstAttribute="height" constant="319" id="loT-Hu-XtU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="d9R-9Z-aS3"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Lx7-Ou-Jwc" firstAttribute="centerX" secondItem="Ou2-dP-59k" secondAttribute="centerX" id="3Vs-Yd-x0I"/>
-                            <constraint firstItem="Lx7-Ou-Jwc" firstAttribute="centerY" secondItem="Ou2-dP-59k" secondAttribute="centerY" constant="250" id="95j-PQ-Hue"/>
                             <constraint firstItem="Hbl-np-gDe" firstAttribute="leading" secondItem="d9R-9Z-aS3" secondAttribute="leading" id="Bet-Qe-kZK"/>
                             <constraint firstItem="Hbl-np-gDe" firstAttribute="trailing" secondItem="d9R-9Z-aS3" secondAttribute="trailing" id="KPD-ct-jXr"/>
                             <constraint firstItem="1nz-Y1-SvK" firstAttribute="centerY" secondItem="Ou2-dP-59k" secondAttribute="centerY" constant="-217" id="L0I-bX-Ihh"/>
                             <constraint firstAttribute="bottom" secondItem="Hbl-np-gDe" secondAttribute="bottom" id="Mcc-Il-CNu"/>
+                            <constraint firstItem="EP6-Wf-fgG" firstAttribute="centerX" secondItem="Ou2-dP-59k" secondAttribute="centerX" id="ewV-QJ-9du"/>
                             <constraint firstItem="Hbl-np-gDe" firstAttribute="top" secondItem="Ou2-dP-59k" secondAttribute="top" id="f7I-yc-kIy"/>
                             <constraint firstItem="1nz-Y1-SvK" firstAttribute="centerX" secondItem="Ou2-dP-59k" secondAttribute="centerX" id="hLz-2c-Eh5"/>
+                            <constraint firstItem="7Le-9n-9Ip" firstAttribute="centerY" secondItem="Ou2-dP-59k" secondAttribute="centerY" constant="301.5" id="kDd-JP-JW4"/>
+                            <constraint firstItem="EP6-Wf-fgG" firstAttribute="centerY" secondItem="Ou2-dP-59k" secondAttribute="centerY" constant="65.5" id="pOr-MI-HHy"/>
+                            <constraint firstItem="7Le-9n-9Ip" firstAttribute="centerX" secondItem="Ou2-dP-59k" secondAttribute="centerX" id="y3V-PF-DqT"/>
                         </constraints>
                     </view>
                     <connections>
@@ -237,7 +238,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kSf-UH-qlg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2810" y="102"/>
+            <point key="canvasLocation" x="2808.6956521739135" y="101.78571428571428"/>
         </scene>
         <!--Characters-->
         <scene sceneID="ORE-ol-kLj">

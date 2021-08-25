@@ -13,6 +13,8 @@ class CharacterListViewController: UIViewController {
     
     var results: [Result]? = []
     var series: [ComicsItem]? = []
+    var comics: [ComicsItem]? = []
+    var stories: [StoriesItem]? = []
     var image = Image.createImage()
     var find = FindCharacterController()
     
@@ -49,39 +51,55 @@ class CharacterListViewController: UIViewController {
     
     func handleGetData(){
         let jsonUrl = "https://gateway.marvel.com:443/v1/public/characters?series=Avengers%209085%2C%2022547%2C%2024229&orderBy=name&ts=1&apikey=70ba4f388906d13bd576ffb400428920&hash=98096b3587d12a61474d31b900eb831e"
+        
+        guard let url = URL(string: jsonUrl) else {return}
+        
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = "GET"
+        urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        let session = URLSession(configuration: .default)
+        let task = session.dataTask(with: urlRequest) { data, response, err in
             
-            guard let url = URL(string: jsonUrl) else {return}
-            
-            var urlRequest = URLRequest(url: url)
-            urlRequest.httpMethod = "GET"
-            urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
-            
-            let session = URLSession(configuration: .default)
-            let task = session.dataTask(with: urlRequest) { data, response, err in
-                
-                if let err = err {
-                    self.basicAlert(title: "Error!", message: "\(err.localizedDescription)")
-                }
-                guard let data = data else{
-                    self.basicAlert(title: "Error!", message: "Something went wrong, no data")
-                    return
-                }
-                do{
-                    let jsonData = try JSONDecoder().decode(Marvel.self, from: data)
-                                        
-                    DispatchQueue.main.async {
-                        self.results = jsonData.data?.results
-                        print("Marvel JSON self.results: ", self.results as Any)
-                        self.tableView.reloadData()
-                        self.activityIndicator(animated: false)
-                    }
-                    
-                }catch{
-                    print("err:", error)
-                }
+            if let err = err {
+                self.basicAlert(title: "Error!", message: "\(err.localizedDescription)")
             }
-            task.resume()
+            guard let data = data else{
+                self.basicAlert(title: "Error!", message: "Something went wrong, no data")
+                return
+            }
+            do{
+                let jsonData = try JSONDecoder().decode(Marvel.self, from: data)
+                
+                DispatchQueue.main.async {
+                    self.results = jsonData.data?.results
+                    print("Marvel JSON self.results: ", self.results as Any)
+                    self.results?.forEach({ result in
+                        self.series = result.series?.items
+                        self.comics = result.comics?.items
+                        self.stories = result.stories?.items
+                    })
+                    self.series?.forEach({ comicsItem in
+                        print("comics Item name from self.series: ", comicsItem.name as Any)
+                    })
+                    self.comics?.forEach({ comicsItem in
+                        print("comics Item name from self.comics: ", comicsItem.name as Any)
+                    })
+                    self.stories?.forEach({ StoriesItem in
+                        print("stories Item name from self.stories: ", StoriesItem.name as Any)
+                    })
+                    
+                    self.tableView.reloadData()
+                    self.activityIndicator(animated: false)
+                    
+                }
+                
+            }catch{
+                print("err:", error)
+            }
         }
+        task.resume()
+    }
 }
 //MARK: UITableViewDelegate, UITableViewDataSource
 
@@ -98,10 +116,10 @@ extension CharacterListViewController: UITableViewDelegate, UITableViewDataSourc
         }
         
         let result = results?[indexPath.row]
-                let poster = results?[indexPath.row]
-                cell.characterNameLabel.text = result?.name
-                cell.characterNameLabel.numberOfLines = 0
-                cell.characterImageView?.image = UIImage(named: (poster?.name)!)
+        let poster = results?[indexPath.row]
+        cell.characterNameLabel.text = result?.name
+        cell.characterNameLabel.numberOfLines = 0
+        cell.characterImageView?.image = UIImage(named: (poster?.name)!)
         self.title = "Avengers"
         
         return cell
@@ -120,14 +138,12 @@ extension CharacterListViewController: UITableViewDelegate, UITableViewDataSourc
         }
         let result = results?[indexPath.row]
         let poster = results?[indexPath.row]
-       
-        //let seriesPath = results?[indexPath.row].series?.items
-        #warning("nameSeries Returns Empty array")
         let nameSeries = self.series!.compactMap({(item: ComicsItem) -> String in return item.name!})
-        print ("\(String(describing: nameSeries))")
-        vc.seriesString = nameSeries.joined(separator: ",")
-
-        
+        vc.seriesString = nameSeries.joined(separator: "\n")
+        let nameComics = self.comics!.compactMap({(item: ComicsItem) -> String in return item.name!})
+        vc.comicsString = nameComics.joined(separator: "\n")
+        let nameStories = self.stories!.compactMap({(item: StoriesItem) -> String in return item.name!})
+        vc.storiesString = nameStories.joined(separator: "\n")
         
         vc.descriptionString = (result?.resultDescription)!
         vc.nameString = (result?.name)!
