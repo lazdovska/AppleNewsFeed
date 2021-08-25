@@ -279,7 +279,7 @@
             </objects>
             <point key="canvasLocation" x="967" y="804"/>
         </scene>
-        <!--Saved Character List View Controller-->
+        <!--Item-->
         <scene sceneID="iDa-Vs-lsK">
             <objects>
                 <tableViewController id="xY0-m7-wCr" customClass="SavedCharacterListViewController" customModule="AppleNewsFeed" customModuleProvider="target" sceneMemberID="viewController">
@@ -334,13 +334,22 @@
                             <outlet property="delegate" destination="xY0-m7-wCr" id="xcR-ef-vMa"/>
                         </connections>
                     </tableView>
+                    <tabBarItem key="tabBarItem" title="Item" id="jc2-Wz-Z74"/>
                     <navigationItem key="navigationItem" id="1q9-Yz-9aO">
-                        <barButtonItem key="leftBarButtonItem" image="info.circle.fill" catalog="system" id="ISh-DZ-unX">
-                            <color key="tintColor" red="0.67273658510000001" green="0.51557576660000004" blue="0.87603706120000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <connections>
-                                <action selector="infoButtonTapped:" destination="xY0-m7-wCr" id="O80-pD-P9C"/>
-                            </connections>
-                        </barButtonItem>
+                        <leftBarButtonItems>
+                            <barButtonItem image="info.circle.fill" catalog="system" id="ISh-DZ-unX">
+                                <color key="tintColor" red="0.67273658510000001" green="0.51557576660000004" blue="0.87603706120000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="infoButtonTapped:" destination="xY0-m7-wCr" id="O80-pD-P9C"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem image="arrow.clockwise" catalog="system" id="8J3-pV-zXb">
+                                <color key="tintColor" red="0.67273658510000001" green="0.51557576660000004" blue="0.87603706120000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="refreshSavedItems:" destination="xY0-m7-wCr" id="A78-nt-yQw"/>
+                                </connections>
+                            </barButtonItem>
+                        </leftBarButtonItems>
                         <rightBarButtonItems>
                             <barButtonItem title="Edit" id="V8W-Z5-dBg">
                                 <color key="tintColor" red="0.67273658510000001" green="0.51557576660000004" blue="0.87603706120000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -351,11 +360,12 @@
                             <barButtonItem image="magnifyingglass" catalog="system" id="sVd-gW-RCI">
                                 <color key="tintColor" red="0.67273658510000001" green="0.51557576660000004" blue="0.87603706120000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
-                                    <segue destination="j7p-ZN-QE0" kind="presentation" id="Y54-AN-ZPg"/>
+                                    <segue destination="j7p-ZN-QE0" kind="presentation" identifier="character" id="Y54-AN-ZPg"/>
                                 </connections>
                             </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="editButtonTitle" destination="V8W-Z5-dBg" id="L4L-gN-uw8"/>
                     </connections>
@@ -490,6 +500,7 @@
     <resources>
         <image name="Background" width="720" height="1280"/>
         <image name="appstore" width="512" height="512"/>
+        <image name="arrow.clockwise" catalog="system" width="115" height="128"/>
         <image name="arrow.down.doc.fill" catalog="system" width="115" height="128"/>
         <image name="chart.bar.doc.horizontal" catalog="system" width="115" height="128"/>
         <image name="info.circle.fill" catalog="system" width="128" height="121"/>
