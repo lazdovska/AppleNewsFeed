@@ -62,5 +62,11 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>UIAppFonts</key>
+	<array>
+		<string>RampartOne-Regular.ttf</string>
+		<string>IndieFlower-Regular.ttf</string>
+		<string>Alegreya-ExtraBold.ttf</string>
+	</array>
 </dict>
 </plist>

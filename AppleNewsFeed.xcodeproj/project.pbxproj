@@ -23,6 +23,9 @@
 		426D5B5226CFE6F3007610DE /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426D5B5126CFE6F3007610DE /* Image.swift */; };
 		426D5B5426CFE6FE007610DE /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426D5B5326CFE6FE007610DE /* DataManager.swift */; };
 		426EEBCB26CCE8D40060202B /* Gloss in Frameworks */ = {isa = PBXBuildFile; productRef = 426EEBCA26CCE8D40060202B /* Gloss */; };
+		42C0E05326D63F4C00BB14F0 /* IndieFlower-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42C0E05226D63F4C00BB14F0 /* IndieFlower-Regular.ttf */; };
+		42C0E05526D63F6F00BB14F0 /* RampartOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42C0E05426D63F6F00BB14F0 /* RampartOne-Regular.ttf */; };
+		42C0E05726D64F2300BB14F0 /* Alegreya-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42C0E05626D64F2300BB14F0 /* Alegreya-ExtraBold.ttf */; };
 		42F9A0AA26C434E900BDC7D6 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F9A0A926C434E900BDC7D6 /* DetailViewController.swift */; };
 		42F9A0AC26C43A3400BDC7D6 /* FindCharacterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F9A0AB26C43A3400BDC7D6 /* FindCharacterController.swift */; };
 		42F9A0AE26C43EF800BDC7D6 /* SavedCharacterListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F9A0AD26C43EF800BDC7D6 /* SavedCharacterListViewController.swift */; };
@@ -46,6 +49,9 @@
 		4210E6B626C1906C00FB5624 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		426D5B5126CFE6F3007610DE /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		426D5B5326CFE6FE007610DE /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		42C0E05226D63F4C00BB14F0 /* IndieFlower-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IndieFlower-Regular.ttf"; sourceTree = "<group>"; };
+		42C0E05426D63F6F00BB14F0 /* RampartOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RampartOne-Regular.ttf"; sourceTree = "<group>"; };
+		42C0E05626D64F2300BB14F0 /* Alegreya-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Alegreya-ExtraBold.ttf"; sourceTree = "<group>"; };
 		42F9A0A926C434E900BDC7D6 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DetailViewController.swift; path = AppleNewsFeed/Controller/DetailViewController.swift; sourceTree = SOURCE_ROOT; };
 		42F9A0AB26C43A3400BDC7D6 /* FindCharacterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindCharacterController.swift; sourceTree = "<group>"; };
 		42F9A0AD26C43EF800BDC7D6 /* SavedCharacterListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedCharacterListViewController.swift; sourceTree = "<group>"; };
@@ -69,6 +75,9 @@
 				4206563C26CA46DA00F57766 /* DesignableTextField.swift */,
 				4206563E26CA46EB00F57766 /* BounceButton.swift */,
 				4206564026CA46FD00F57766 /* DesignButton.swift */,
+				42C0E05226D63F4C00BB14F0 /* IndieFlower-Regular.ttf */,
+				42C0E05426D63F6F00BB14F0 /* RampartOne-Regular.ttf */,
+				42C0E05626D64F2300BB14F0 /* Alegreya-ExtraBold.ttf */,
 			);
 			path = ExtraResource;
 			sourceTree = "<group>";
@@ -216,8 +225,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42C0E05726D64F2300BB14F0 /* Alegreya-ExtraBold.ttf in Resources */,
 				4210E6A626C187A100FB5624 /* LaunchScreen.storyboard in Resources */,
 				4210E6A326C187A100FB5624 /* Assets.xcassets in Resources */,
+				42C0E05326D63F4C00BB14F0 /* IndieFlower-Regular.ttf in Resources */,
+				42C0E05526D63F6F00BB14F0 /* RampartOne-Regular.ttf in Resources */,
 				4210E69E26C1879F00FB5624 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

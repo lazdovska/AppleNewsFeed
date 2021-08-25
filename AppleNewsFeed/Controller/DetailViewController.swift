@@ -30,7 +30,7 @@ class DetailViewController: UIViewController {
     
     @IBOutlet weak var charSegmentControl: UISegmentedControl!
     
-    @IBOutlet weak var segmentLabelResult: UILabel!
+    @IBOutlet weak var segmentLabelResult: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
