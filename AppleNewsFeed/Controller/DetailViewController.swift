@@ -41,7 +41,7 @@ class DetailViewController: UIViewController {
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         context = appDelegate.persistentContainer.viewContext
-
+        
     }
     
     func saveData(){
@@ -52,7 +52,7 @@ class DetailViewController: UIViewController {
             print(error.localizedDescription)
         }
     }
-   
+    
     @IBAction func savedButtonTapped(_ sender: Any) {
         
         let newCharacter = Items(context: self.context!)
@@ -62,29 +62,29 @@ class DetailViewController: UIViewController {
         newCharacter.comicsText = comicsString
         newCharacter.storiesText = storiesString
         guard let data = characterImageView?.image!.pngData() else{return}
-            if !data.isEmpty {
-                newCharacter.image = data
-            }
-
-            self.savedItems.append(newCharacter)
-            saveData()
+        if !data.isEmpty {
+            newCharacter.image = data
+        }
+        
+        self.savedItems.append(newCharacter)
+        saveData()
         
     }
-
+    
     @IBAction func segmentValueChange(_ sender: UISegmentedControl) {
         let seriesResult = seriesString
         let comicsResult = comicsString
         let storiesResult = storiesString
-            switch charSegmentControl.selectedSegmentIndex
-            {
-            case 0:
-                segmentLabelResult.text = "\(seriesResult)"
-            case 1:
-                segmentLabelResult.text = "\(comicsResult)"
-            case 2:
-                segmentLabelResult.text = "\(storiesResult)"
-            default:
-                break
-            }
+        switch charSegmentControl.selectedSegmentIndex
+        {
+        case 0:
+            segmentLabelResult.text = "\(seriesResult)"
+        case 1:
+            segmentLabelResult.text = "\(comicsResult)"
+        case 2:
+            segmentLabelResult.text = "\(storiesResult)"
+        default:
+            break
         }
+    }
 }

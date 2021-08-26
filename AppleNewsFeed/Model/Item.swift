@@ -72,6 +72,9 @@ struct StoriesItem: Codable {
 enum TypeEnum: String, Codable {
     case cover = "cover"
     case interiorStory = "interiorStory"
+    case letters = "letters"
+    case pinup = "pinup"
+    case empty = ""
 }
 
 // MARK: - Thumbnail

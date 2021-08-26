@@ -17,6 +17,7 @@ class CharacterListViewController: UIViewController {
     var stories: [StoriesItem]? = []
     var thumbnail: [Thumbnail]? = []
     var find = FindCharacterController()
+    var jsonUrl = String()
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
@@ -40,19 +41,43 @@ class CharacterListViewController: UIViewController {
     }
     
     @IBAction func infoBarItem(_ sender: Any) {
-        basicAlert(title: "Marvel Character Info!", message: "Press plane to fetch Marvel Characters.")
+        basicAlert(title: "Marvel Character Info!", message: "Press plane to choose Marvel Characters.")
     }
     
     @IBAction func getDataTapped(_ sender: Any) {
-        self.activityIndicator(animated: true)
-        handleGetData()
+        let chooseAlert = UIAlertController(title: "Please Choose Series List!", message: "Choose series to fetch Marvel Characters.", preferredStyle: .alert)
+        
+        let buttonA = UIAlertAction(title: "Avengers", style: .default){ alertAction in
+            self.jsonUrl = "https://gateway.marvel.com:443/v1/public/characters?series=Avengers%209085%2C%2022547%2C%2024229&orderBy=name&ts=1&apikey=70ba4f388906d13bd576ffb400428920&hash=98096b3587d12a61474d31b900eb831e"
+            self.handleGetData()
+            
+        }
+        
+        let buttonS = UIAlertAction(title: "Spider-Man", style: .default) { alertAction in
+            self.jsonUrl = "https://gateway.marvel.com:443/v1/public/characters?series=Spider-Man%2C%202069%2C%2027022%2C%2020508&orderBy=name&ts=1&apikey=70ba4f388906d13bd576ffb400428920&hash=98096b3587d12a61474d31b900eb831e"
+            self.handleGetData()
+            
+        }
+        let buttonD = UIAlertAction(title: "Doctor Strange", style: .default) { alertAction in
+            self.jsonUrl = "https://gateway.marvel.com:443/v1/public/characters?series=Doctor%20Strange%2C%202985%2C%203740%2C%2020457%2C%2024296&orderBy=name&ts=1&apikey=70ba4f388906d13bd576ffb400428920&hash=98096b3587d12a61474d31b900eb831e"
+            self.handleGetData()
+            
+        }
+        let cancelButton = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
+        
+        chooseAlert.addAction(buttonA)
+        chooseAlert.addAction(buttonS)
+        chooseAlert.addAction(buttonD)
+        chooseAlert.addAction(cancelButton)
+        
+        present(chooseAlert, animated: true, completion: nil)
         
     }
     
     func handleGetData(){
-        let jsonUrl = "https://gateway.marvel.com:443/v1/public/characters?series=Avengers%209085%2C%2022547%2C%2024229&orderBy=name&ts=1&apikey=70ba4f388906d13bd576ffb400428920&hash=98096b3587d12a61474d31b900eb831e"
+        let jsonUrlLink = self.jsonUrl
         
-        guard let url = URL(string: jsonUrl) else {return}
+        guard let url = URL(string: jsonUrlLink) else {return}
         
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = "GET"
@@ -102,7 +127,7 @@ class CharacterListViewController: UIViewController {
         return returnImage
     }
 }
-    
+
 //MARK: UITableViewDelegate, UITableViewDataSource
 
 extension CharacterListViewController: UITableViewDelegate, UITableViewDataSource{
@@ -121,7 +146,7 @@ extension CharacterListViewController: UITableViewDelegate, UITableViewDataSourc
         cell.characterNameLabel.text = result?.name
         cell.characterNameLabel.numberOfLines = 0
         cell.characterImageView?.image = loadImage(thumbnail: (result?.thumbnail)!)!
-        self.title = "Avengers"
+        self.title = "Characters"
         
         return cell
     }

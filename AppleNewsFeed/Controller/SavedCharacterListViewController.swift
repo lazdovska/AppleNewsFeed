@@ -48,8 +48,8 @@ class SavedCharacterListViewController: UITableViewController, ChangeCharacterDe
     func loadData(){
         let request: NSFetchRequest<Items> = Items.fetchRequest()
         let sectionSortDescriptor = NSSortDescriptor(key: "nameText", ascending: true)
-                let sortDescriptors = [sectionSortDescriptor]
-                request.sortDescriptors = sortDescriptors
+        let sortDescriptors = [sectionSortDescriptor]
+        request.sortDescriptors = sortDescriptors
         do {
             savedItems = try (context?.fetch(request))!
             
