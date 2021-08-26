@@ -61,15 +61,14 @@ class DetailViewController: UIViewController {
         newCharacter.seriesText = seriesString
         newCharacter.comicsText = comicsString
         newCharacter.storiesText = storiesString
-        if let img = UIImage(named: nameString) {
-            guard let data = img.pngData() else{return}
+        guard let data = characterImageView?.image!.pngData() else{return}
             if !data.isEmpty {
                 newCharacter.image = data
             }
 
             self.savedItems.append(newCharacter)
             saveData()
-        }
+        
     }
 
     @IBAction func segmentValueChange(_ sender: UISegmentedControl) {

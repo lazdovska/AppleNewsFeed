@@ -15,7 +15,7 @@ class CharacterListViewController: UIViewController {
     var series: [ComicsItem]? = []
     var comics: [ComicsItem]? = []
     var stories: [StoriesItem]? = []
-    var image = Image.createImage()
+    var thumbnail: [Thumbnail]? = []
     var find = FindCharacterController()
     
     @IBOutlet weak var tableView: UITableView!
@@ -74,20 +74,6 @@ class CharacterListViewController: UIViewController {
                 DispatchQueue.main.async {
                     self.results = jsonData.data?.results
                     print("Marvel JSON self.results: ", self.results as Any)
-                    self.results?.forEach({ result in
-                        self.series = result.series?.items
-                        self.comics = result.comics?.items
-                        self.stories = result.stories?.items
-                    })
-                    self.series?.forEach({ comicsItem in
-                        print("comics Item name from self.series: ", comicsItem.name as Any)
-                    })
-                    self.comics?.forEach({ comicsItem in
-                        print("comics Item name from self.comics: ", comicsItem.name as Any)
-                    })
-                    self.stories?.forEach({ StoriesItem in
-                        print("stories Item name from self.stories: ", StoriesItem.name as Any)
-                    })
                     
                     self.tableView.reloadData()
                     self.activityIndicator(animated: false)
@@ -100,7 +86,23 @@ class CharacterListViewController: UIViewController {
         }
         task.resume()
     }
+    private func loadImage(thumbnail: Thumbnail) -> UIImage? {
+        var returnImage: UIImage?
+        let imageURL = (thumbnail.path)!.replacingOccurrences(of: "http://", with: "https://") + "/portrait_uncanny." + (thumbnail.thumbnailExtension)!
+        print(">>>imageUR: " + imageURL)
+        guard let url = URL(string: imageURL) else {
+            return returnImage
+        }
+        
+        if let data = try? Data(contentsOf: url){
+            if let imageURL = UIImage(data: data){
+                returnImage = imageURL
+            }
+        }
+        return returnImage
+    }
 }
+    
 //MARK: UITableViewDelegate, UITableViewDataSource
 
 extension CharacterListViewController: UITableViewDelegate, UITableViewDataSource{
@@ -116,10 +118,9 @@ extension CharacterListViewController: UITableViewDelegate, UITableViewDataSourc
         }
         
         let result = results?[indexPath.row]
-        let poster = results?[indexPath.row]
         cell.characterNameLabel.text = result?.name
         cell.characterNameLabel.numberOfLines = 0
-        cell.characterImageView?.image = UIImage(named: (poster?.name)!)
+        cell.characterImageView?.image = loadImage(thumbnail: (result?.thumbnail)!)!
         self.title = "Avengers"
         
         return cell
@@ -137,17 +138,16 @@ extension CharacterListViewController: UITableViewDelegate, UITableViewDataSourc
             return
         }
         let result = results?[indexPath.row]
-        let poster = results?[indexPath.row]
-        let nameSeries = self.series!.compactMap({(item: ComicsItem) -> String in return item.name!})
-        vc.seriesString = nameSeries.joined(separator: "\n")
-        let nameComics = self.comics!.compactMap({(item: ComicsItem) -> String in return item.name!})
-        vc.comicsString = nameComics.joined(separator: "\n")
-        let nameStories = self.stories!.compactMap({(item: StoriesItem) -> String in return item.name!})
-        vc.storiesString = nameStories.joined(separator: "\n")
+        let nameSeries = result?.series?.items?.compactMap({(item: ComicsItem) -> String in return item.name!})
+        vc.seriesString = (nameSeries?.joined(separator: "\n"))!
+        let nameComics = result?.comics?.items?.compactMap({(item: ComicsItem) -> String in return item.name!})
+        vc.comicsString = (nameComics?.joined(separator: "\n"))!
+        let nameStories = result?.stories?.items?.compactMap({(item: StoriesItem) -> String in return item.name!})
+        vc.storiesString = (nameStories?.joined(separator: "\n"))!
         
         vc.descriptionString = (result?.resultDescription)!
         vc.nameString = (result?.name)!
-        vc.images = UIImage(named: (poster?.name)!)!
+        vc.images = loadImage(thumbnail: (result?.thumbnail)!)!
         
         navigationController?.pushViewController(vc, animated: true)
     }
