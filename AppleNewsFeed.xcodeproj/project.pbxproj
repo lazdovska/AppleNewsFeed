@@ -20,6 +20,7 @@
 		4210E6B326C1882000FB5624 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4210E6B226C1882000FB5624 /* Alert.swift */; };
 		4210E6B526C18CBC00FB5624 /* CharacterListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4210E6B426C18CBC00FB5624 /* CharacterListTableViewCell.swift */; };
 		4210E6B726C1906C00FB5624 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4210E6B626C1906C00FB5624 /* Item.swift */; };
+		4216B1FE26DE2ACF00AF992C /* DesignableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4216B1FD26DE2ACF00AF992C /* DesignableImageView.swift */; };
 		426EEBCB26CCE8D40060202B /* Gloss in Frameworks */ = {isa = PBXBuildFile; productRef = 426EEBCA26CCE8D40060202B /* Gloss */; };
 		42C0E05326D63F4C00BB14F0 /* IndieFlower-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42C0E05226D63F4C00BB14F0 /* IndieFlower-Regular.ttf */; };
 		42C0E05526D63F6F00BB14F0 /* RampartOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 42C0E05426D63F6F00BB14F0 /* RampartOne-Regular.ttf */; };
@@ -45,6 +46,7 @@
 		4210E6B226C1882000FB5624 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		4210E6B426C18CBC00FB5624 /* CharacterListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListTableViewCell.swift; sourceTree = "<group>"; };
 		4210E6B626C1906C00FB5624 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		4216B1FD26DE2ACF00AF992C /* DesignableImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableImageView.swift; sourceTree = "<group>"; };
 		42C0E05226D63F4C00BB14F0 /* IndieFlower-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IndieFlower-Regular.ttf"; sourceTree = "<group>"; };
 		42C0E05426D63F6F00BB14F0 /* RampartOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RampartOne-Regular.ttf"; sourceTree = "<group>"; };
 		42C0E05626D64F2300BB14F0 /* Alegreya-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Alegreya-ExtraBold.ttf"; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 				4206563C26CA46DA00F57766 /* DesignableTextField.swift */,
 				4206563E26CA46EB00F57766 /* BounceButton.swift */,
 				4206564026CA46FD00F57766 /* DesignButton.swift */,
+				4216B1FD26DE2ACF00AF992C /* DesignableImageView.swift */,
 				42C0E05226D63F4C00BB14F0 /* IndieFlower-Regular.ttf */,
 				42C0E05426D63F6F00BB14F0 /* RampartOne-Regular.ttf */,
 				42C0E05626D64F2300BB14F0 /* Alegreya-ExtraBold.ttf */,
@@ -241,6 +244,7 @@
 				4210E6A126C1879F00FB5624 /* AppleNewsFeed.xcdatamodeld in Sources */,
 				4210E6B526C18CBC00FB5624 /* CharacterListTableViewCell.swift in Sources */,
 				4206563D26CA46DA00F57766 /* DesignableTextField.swift in Sources */,
+				4216B1FE26DE2ACF00AF992C /* DesignableImageView.swift in Sources */,
 				4206563F26CA46EB00F57766 /* BounceButton.swift in Sources */,
 				4210E69726C1879F00FB5624 /* AppDelegate.swift in Sources */,
 				4210E6B726C1906C00FB5624 /* Item.swift in Sources */,
