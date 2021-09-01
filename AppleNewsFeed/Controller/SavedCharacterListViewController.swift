@@ -23,6 +23,7 @@ class SavedCharacterListViewController: UITableViewController, ChangeCharacterDe
         tableView.delegate = self
         tableView.dataSource = self
         tableView.reloadData()
+        tableView.backgroundView = UIImageView(image: UIImage(named: "BacgroundMarvelLight"))
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         context = appDelegate.persistentContainer.viewContext
@@ -66,7 +67,7 @@ class SavedCharacterListViewController: UITableViewController, ChangeCharacterDe
     }
     
     @IBAction func infoButtonTapped(_ sender: Any) {
-        basicAlert(title: "Saved Character Info!", message: "In this section you will find your saved characters.\n You can search in your saved character list by using the Magnifying glass icon in TabBar and typing the character name.\n The character list can be refreshed after search, by using the Refresh icon in TabBar.\n If you decide to delete some of them, you can do it by using \"Edit\" button and click on delete symbol, or alternative way is to pointer on related character and swipe from right side the left, then press \"delete\"!")
+        basicAlert(title: "Saved Character Info!", message: "In this section you will find your saved characters.\n \n You can \"Search\", \"Refresh\", \"Edit\" and \"Delete\" items using tab bar buttons. \n \n Or to delete chosen ccharacter swipe from right side the left, then press \"delete\"!")
     }
     
     @IBAction func editButtonTapped(_ sender: Any) {
@@ -101,6 +102,7 @@ class SavedCharacterListViewController: UITableViewController, ChangeCharacterDe
     
     @IBAction func refreshSavedItems(_ sender: Any) {
         loadData()
+        countItems()
     }
     
     
@@ -119,6 +121,7 @@ class SavedCharacterListViewController: UITableViewController, ChangeCharacterDe
         let item = savedItems[indexPath.row]
         cell.characterNameLabel.text = item.nameText
         cell.characterNameLabel.numberOfLines = 0
+        cell.backgroundView = UIImageView(image: UIImage(named: "SavedMarcelCellLight.png"))
         
         if let imageData = item.image {
             cell.characterImageView.image = UIImage(data: imageData as Data)
@@ -158,6 +161,9 @@ class SavedCharacterListViewController: UITableViewController, ChangeCharacterDe
         if editingStyle == .delete {
             
             let deleteAlert = UIAlertController(title: "Delete", message: "Are you sure you want to delete?", preferredStyle: .alert)
+            deleteAlert.view.backgroundColor = UIColor.systemRed
+            deleteAlert.view.tintColor = UIColor.systemPurple
+            deleteAlert.view.layer.cornerRadius = 40
             deleteAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
             deleteAlert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: {_ in
                 let item = self.savedItems[indexPath.row]

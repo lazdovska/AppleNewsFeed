@@ -26,6 +26,7 @@ class CharacterListViewController: UIViewController {
         super.viewDidLoad()
         self.title = "Marvel Characters"
         activityIndicatorView.isHidden = true
+        tableView.backgroundView = UIImageView(image: UIImage(named: "BacgroundMarvelLight"))
     }
     
     func activityIndicator(animated: Bool){
@@ -46,21 +47,35 @@ class CharacterListViewController: UIViewController {
     
     @IBAction func getDataTapped(_ sender: Any) {
         let chooseAlert = UIAlertController(title: "Please Choose Series List!", message: "Choose series to fetch Marvel Characters.", preferredStyle: .alert)
-        
+        chooseAlert.view.backgroundColor = UIColor.systemRed
+        chooseAlert.view.tintColor = UIColor.systemPurple
+        chooseAlert.view.layer.cornerRadius = 40
         let buttonA = UIAlertAction(title: "Avengers", style: .default){ alertAction in
             self.jsonUrl = "https://gateway.marvel.com:443/v1/public/characters?series=Avengers%209085%2C%2022547%2C%2024229&orderBy=name&ts=1&apikey=70ba4f388906d13bd576ffb400428920&hash=98096b3587d12a61474d31b900eb831e"
+            self.results?.removeAll()
+            self.tableView.reloadData()
+            self.tableView.backgroundView = UIImageView(image: UIImage(named: "Background"))
             self.handleGetData()
+            self.activityIndicator(animated: true)
             
         }
         
         let buttonS = UIAlertAction(title: "Spider-Man", style: .default) { alertAction in
             self.jsonUrl = "https://gateway.marvel.com:443/v1/public/characters?series=Spider-Man%2C%202069%2C%2027022%2C%2020508&orderBy=name&ts=1&apikey=70ba4f388906d13bd576ffb400428920&hash=98096b3587d12a61474d31b900eb831e"
+            self.results?.removeAll()
+            self.tableView.reloadData()
+            self.tableView.backgroundView = UIImageView(image: UIImage(named: "SpiderManLight"))
             self.handleGetData()
+            self.activityIndicator(animated: true)
             
         }
         let buttonD = UIAlertAction(title: "Doctor Strange", style: .default) { alertAction in
             self.jsonUrl = "https://gateway.marvel.com:443/v1/public/characters?series=Doctor%20Strange%2C%202985%2C%203740%2C%2020457%2C%2024296&orderBy=name&ts=1&apikey=70ba4f388906d13bd576ffb400428920&hash=98096b3587d12a61474d31b900eb831e"
+            self.results?.removeAll()
+            self.tableView.reloadData()
+            self.tableView.backgroundView = UIImageView(image: UIImage(named: "DoctorStrangeLight"))
             self.handleGetData()
+            self.activityIndicator(animated: true)
             
         }
         let cancelButton = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
@@ -146,7 +161,7 @@ extension CharacterListViewController: UITableViewDelegate, UITableViewDataSourc
         cell.characterNameLabel.text = result?.name
         cell.characterNameLabel.numberOfLines = 0
         cell.characterImageView?.image = loadImage(thumbnail: (result?.thumbnail)!)!
-        self.title = "Characters"
+        cell.backgroundView = UIImageView(image: UIImage(named: "SavedMarcelCellLight.png"))
         
         return cell
     }
